@@ -1,0 +1,112 @@
+\documentclass[10pt,a4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.misc,shapes.geometric,positioning}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\tikzset{
+		decision/.style={diamond, draw, %fill=blue!20,
+			text width=4.5em, text badly centered, 
+			node distance=2.5cm, inner sep=0pt
+		},
+		block/.style={rectangle, draw, %fill=blue!20,
+			text width=15em, 
+			text centered, 
+			node distance=2.5cm,
+			%rounded corners, 
+			minimum height=3em
+		},
+		loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+			text width=15em, text centered,  
+			%node distance=2.5cm,% minimum height=3em
+		},
+	cloud/.style={draw, ellipse,%fill=red!20, 
+		node distance=1.5cm, minimum height=2em
+	},
+	input/.style={ % requires library shapes.geometric
+		draw,
+		trapezium,
+		trapezium left angle=60,
+		trapezium right angle=120,node distance=2.5cm,
+	},
+	line/.style={draw, very thick, %color=black!50,
+		-latex'},
+	connessione/.style={
+		draw,
+		circle,
+		radius=5pt,
+	}	
+	}
+%	\begin{center}
+		\begin{tikzpicture}[scale=1, 
+			%node distance = 2.0cm, 
+			auto]
+			% Place nodes
+			\node [cloud] (init) {Inizio};
+			\node [input, below of=init] (passo1) {Leggo le coordinate dei punti \\ $A(x_1,y_1)$ e $B(x_2,y_2)$};
+			\node [decision, below of=passo1] (passo2) {Hanno la stessa $x$ ?};
+			\node [block, right of=passo2,node distance=5cm] (scelta1) {La soluzione è $x=x_1$};
+			\node [decision, below of=passo2,node distance=3cm] (passo3) {Hanno la stessa $y$ ?};
+			\node [block, right of=passo3,node distance=5cm] (scelta2) {La soluzione è $y=y_2$};
+			
+     		\node [block, below of=passo3,node distance=3cm] (passo4) {Scrivo $y=mx+q$};
+			\node [block, below of=passo4] (passo5) {Sostituisco $A$\\ \quad $y_1=mx_1+q$ 
+				
+				Ottengo la \textbf{prima} relazione};
+			\node [block, below of=passo5] (passo6) {Sostituisco $B$\\ \quad $y_2=mx_2+q$  Ottengo la \textbf{seconda}  relazione};
+			\node [block, below of=passo6] (passo7) {Scrivo\quad\begin{minipage}[t][0.8cm][b]{1.8cm}%
+					 \begin{align*}
+					 	y_1=&mx_1+q\\
+						y_2=&mx_2+q
+					\end{align*}
+				\end{minipage}};
+			\node [block, below of=passo7] (passo8) {Sottraggo la \textbf{prima} dalla \textbf{seconda}. 
+				
+				Scompare $q$. 
+				
+				Ottengo $\textbf{m}$};
+			\node [block, below of=passo8] (passo9) {Scelgo tra la \textbf{prima} e la \textbf{seconda}.
+				
+				 Sostituisco $m$.
+				
+				 Ottengo $\textbf{q}$};
+			\node [block, below of=passo9] (passo10) {La soluzione è $y=\textbf{m}x+\textbf{q}$};
+			\node[connessione,below of=passo10,node distance=2cm] (nodo1) {};
+			\node [cloud,below of=nodo1] (passo11) {Fine};	
+%
+		\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+			\path [line] (passo2) -- node [near start] {No}(passo3);
+			\path [line] (passo3) -- node [near start] {No}(passo4);
+			\path [line] (passo2) -- node [near start] {Si}(scelta1);
+			\path [line] (passo3) -- node [near start] {Si}(scelta2);
+			\path [line] (passo4) -- (passo5);
+			\path [line] (passo5) -- (passo6);
+			\path [line] (passo6) -- (passo7);
+			\path [line] (passo7) -- (passo8);
+			\path [line] (passo8) -- (passo9);
+			\path [line] (passo9) -- (passo10);
+			\path [line] (passo10) -- (nodo1);
+			\path [line] (nodo1) -- (passo11);
+			\path [line] (scelta1.east) |- ++(1,0) |-(nodo1);
+			\path [line] (scelta2.east) |- ++(1,0) |-(nodo1);
+		\end{tikzpicture}
+%	\end{center}
+\end{document}

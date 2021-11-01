@@ -1,0 +1,79 @@
+\documentclass[10pt,a4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+		\tikzset{
+		decision/.style={diamond, draw, %fill=blue!20,
+			text width=4.5em, text badly centered, 
+			node distance=2cm, inner sep=0pt
+		},
+		block/.style={rectangle, draw, %fill=blue!20,
+			text width=15em, text centered, 
+			node distance=2.0cm,
+			%rounded corners, %minimum height=3em
+		},
+		loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+			text width=15em, text centered,  
+			%node distance=2.5cm,% minimum height=3em
+		},
+		cloud/.style={draw, ellipse,%fill=red!20, 
+			node distance=2.5cm, minimum height=2em
+		},
+		input/.style={ % requires library shapes.geometric
+			draw,
+			trapezium,
+			trapezium left angle=60,
+			trapezium right angle=120,
+		},
+		line/.style={draw, very thick, %color=black!50,
+			-latex'},
+		connessione/.style={
+			draw,
+			circle,
+			radius=5pt,
+		}	
+	}
+		\begin{tikzpicture}[scale=1, node distance = 1.5cm, auto]
+			% Place nodes
+			\node [cloud] (init) {Inizio};
+			%\node [cloud, left of=init] (expert) {expert};
+			%	\node [cloud, right of=init] (system) {system};
+			\node [block, below of=init] (passo1) {Prendo i punti $A$ e $B$};
+			\node [decision, below of=passo1] (passo2) {Hanno la stessa $y$};
+			\node [decision, below of=passo2,node distance=3cm] (passo3) {Hanno la stessa $x$};
+			\node [decision, below of=passo3,node distance=3cm] (passo4) {Hanno $x$ e $y$ diversi};
+			\node [block, right of=passo2, node distance=5cm] (scelta1) {$d(AB)=\abs{x_1-x_2}$};
+			\node [block, right of=passo3, node distance=5cm] (scelta2) {$d(AB)=\abs{y_1-y_2}$};
+			\node [block, right of=passo4, node distance=5cm] (scelta3) {$d(AB)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$};
+			\node [cloud, below of=passo4] (fine) {Fine};
+			\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+			\path [line] (passo2) -- node [near start] {No} (passo3);
+			\path [line] (passo3) -- node [near start] {No} (passo4);
+			\path [line] (passo2) -- node [near start] {Si} (scelta1);
+			\path [line] (passo3) -- node [near start] {Si} (scelta2);
+			\path [line] (passo4) -- node [near start] {Si} (scelta3);
+			\path [line] (scelta1.east) |- ++(1,0) |-(fine);
+			\path [line] (scelta2.east) |- ++(1,0) |-(fine);
+			\path [line] (scelta3.east) |- ++(1,0) |-(fine) ;
+		\end{tikzpicture}
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+%\usepackage[a2paper,landscape]{geometry}
+%\usepackage[a2paper,landscape]{geometry}
+%\usepackage{lipsum}
+\usepackage{lmodern}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{standalone}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage[poster]{tcolorbox}
+\tcbuselibrary{listings}
+\pagestyle{empty}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\begin{tcbposter}[
+		coverage = {
+			spread,
+			interior style={
+				%top color=yellow,bottom color=yellow!50!red
+			},
+		%	watermark text={\LaTeX\ Poster},
+			%watermark color=yellow,	
+		},
+		poster = {
+			showframe=false,
+			%showframe,
+			columns=3,
+			rows=5}
+		]
+		% Here, we insert the poster content later
+		\posterbox{name=title,column=1,below=top}{{\Large Base Analitica} \\
+		}
+\posterbox[fit,adjusted title=Valore assoluto,halign=left,halign=flush left,  valign=top]{name=valass ,column=1,row=1,below=title}
+{\[\abs{a}=\begin{dcases}
+		+a&\quad\text{se}\quad a>0\\
+		0&\quad\text{se}\quad a=0\\
+		-a&\quad\text{se}\quad a<0\\
+	\end{dcases}\]}
+\posterbox[fit,adjusted title=Valore assoluto esempi,halign=left,halign=flush left,  valign=top]{name=valasses,column=2,row=1,below=title}
+{\[\abs{+5}=5\]
+\[\abs{-3}=--3=+3\]}
+\posterbox[fit,adjusted title=Segmento parallelo asse x,halign=left,halign=flush left,  valign=top]{name=parassex,column=1,row=2,span=1}
+{\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+	\clip(-1.,-1.) rectangle (6.,4.);
+	\draw (1.,2.)-- (5.,2.);
+	\draw[->] (-1.,0)-- (6.0,0);
+	\draw[->] (0,-1)-- (0,4);
+	\draw [fill=black] (1.,2.) circle (2.5pt);
+	\draw[color=black] (1.14,2.37) node {$A$};
+	\draw [fill=black] (5.,2.) circle (2.5pt);
+	\draw[color=black] (5.14,2.37) node {$B$};
+\end{tikzpicture}
+\end{center}}
+\posterbox[fit,adjusted title=Segmento parallelo asse y,halign=left,halign=flush left,  valign=top]{name=parassey,column=2,row=2,span=1}
+{\begin{center}
+	\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+		\clip(-1.,-1.) rectangle (6.,4.);
+		\draw (2.,1.)-- (2.,3.);
+		\draw[->] (-1.,0)-- (6.0,0);
+		\draw[->] (0,-1)-- (0,4);
+		\draw [fill=black] (2.,1.) circle (2.5pt);
+		\draw[color=black] (2.0,0.8) node {$A$};
+		\draw [fill=black] (2.,3.) circle (2.5pt);
+		\draw[color=black] (2.,3.3) node {$B$};
+	\end{tikzpicture}
+\end{center}}
+\posterbox[fit,adjusted title=Segmento obliquo,halign=left,halign=flush left,  valign=top]{name=segobliquo,column=3,row=2,span=1}
+{\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+		\clip(-1.,-1.) rectangle (6.,4.);
+		\draw (1.,1.)-- (4.,3.);
+		\draw[->] (-1.,0)-- (6.0,0);
+		\draw[->] (0,-1)-- (0,4);
+		\draw [fill=black] (1.,1.) circle (2.5pt);
+		\draw[color=black] (1.0,0.8) node {$A$};
+		\draw [fill=black] (4.,3.) circle (2.5pt);
+		\draw[color=black] (4.,3.3) node {$B$};
+		\end{tikzpicture}
+\end{center}}
+\posterbox[fit,adjusted title=Distanza AB,%halign=left,halign=flush left,
+  valign=top]{name=dparassex,column=1,row=3,span=1,below=parassex}
+{$\begin{aligned}
+		&A(x_1;y_1)\\
+		&B(x_2;y_1)\\
+		d(AB)&=\abs{x_1-x_2}
+		\end{aligned}$}
+\posterbox[fit,adjusted title=Distanza AB,halign=left,halign=flush left,  valign=top]{name=dparassey,column=2,row=3,span=1,below=parassey}
+{$\begin{aligned}
+		&A(x_1;y_1)\\
+		&B(x_1;y_2)\\
+		d(AB)&=\abs{y_1-y_2}
+	\end{aligned}$}
+\posterbox[fit,adjusted title=Distanza AB,halign=left,halign=flush left,  valign=top]{name=dparassey,column=3,row=3,below=segobliquo}
+{$\begin{aligned}
+		A&(x_1;y_1)\\
+		B&(x_2;y_2)\\
+		d(AB)=&\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}
+	\end{aligned}$}
+\posterbox[fit,adjusted title=Punto Medio segmento parallelo asse x,halign=left,halign=flush left,  valign=top]{name=Mparassex,column=1,row=4,span=1}
+{\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+			\clip(-1.,-1.) rectangle (6.,4.);
+			\draw (1.,2.)-- (5.,2.);
+			\draw[->] (-1.,0)-- (6.0,0);
+			\draw[->] (0,-1)-- (0,4);
+			\draw [fill=black] (1.,2.) circle (2.5pt);
+			\draw[color=black] (1.14,2.37) node {$A$};
+			\draw [fill=black] (3.,2.) circle (2.5pt);
+			\draw[color=black] (3.14,2.37) node {$M$};
+			\draw [fill=black] (5.,2.) circle (2.5pt);
+			\draw[color=black] (5.14,2.37) node {$B$};
+		\end{tikzpicture}
+\end{center}}
+\posterbox[fit,adjusted title=Punto Medio segmento parallelo asse y,halign=left,halign=flush left,  valign=top]{name=Mparassey,column=2,row=4,span=1}
+{\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+			\clip(-1.,-1.) rectangle (6.,4.);
+			\draw (2.,1.)-- (2.,3.);
+			\draw[->] (-1.,0)-- (6.0,0);
+			\draw[->] (0,-1)-- (0,4);
+			\draw [fill=black] (2.,1.) circle (2.5pt);
+			\draw[color=black] (2.0,0.6) node {$A$};
+			\draw [fill=black] (2.,2.) circle (2.5pt);
+			\draw[color=black] (2.4,2.0) node {$M$};
+			\draw [fill=black] (2.,3.) circle (2.5pt);
+			\draw[color=black] (2.,3.3) node {$B$};
+		\end{tikzpicture}
+\end{center}}
+\posterbox[fit,adjusted title=Segmento obliquo,halign=left,halign=flush left,  valign=top]{name=Msegobliquo,column=3,row=4,span=1}
+{\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+			\clip(-1.,-1.) rectangle (6.,4.);
+			\draw (1.,1.)-- (4.,3.);
+			\draw[->] (-1.,0)-- (6.0,0);
+			\draw[->] (0,-1)-- (0,4);
+			\draw [fill=black] (1.,1.) circle (2.5pt);
+			\draw[color=black] (1.0,0.8) node {$A$};
+			\draw [fill=black] (2.5,2.) circle (2.5pt);
+			\draw[color=black] (2.5,1.7) node {$M$};
+			\draw [fill=black] (4.,3.) circle (2.5pt);
+			\draw[color=black] (4.,3.3) node {$B$};
+		\end{tikzpicture}
+\end{center}}
+\posterbox[fit,adjusted title=Punto medio AB,%halign=left,halign=flush left,
+valign=top]{name=dparassex,column=1,row=5,span=1,below=Mparassex}
+{$\begin{aligned}
+		&A(x_1;y_1)\\
+		&B(x_2;y_1)\\
+		&M(\dfrac{x_1+x_2}{2};y_1)
+	\end{aligned}$}
+\posterbox[fit,adjusted title=Punto medio AB,halign=left,halign=flush left,  valign=top]{name=dparassey,column=2,row=5,span=1,below=Mparassey}
+{$\begin{aligned}
+		&A(x_1;y_1)\\
+		&B(x_1;y_2)\\
+	&M(x_1;\dfrac{y_1+y_2}{2})
+	\end{aligned}$}
+\posterbox[fit,adjusted title=Punto medio AB,halign=left,halign=flush left,  valign=top]{name=dparassey,column=3,row=5,below=Msegobliquo}
+{$\begin{aligned}
+		&A(x_1;y_1)\\
+		&B(x_2;y_2)\\
+		&M(\dfrac{x_1+x_2}{2};\dfrac{y_1+y_2}{2})
+	\end{aligned}$}
+\end{tcbposter}
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass[10pt,a4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.misc,shapes.geometric,positioning}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\tikzset{
+		decision/.style={diamond, draw, %fill=blue!20,
+			text width=4.5em, text badly centered, 
+			node distance=2.5cm, inner sep=0pt
+		},
+		block/.style={rectangle, draw, %fill=blue!20,
+			text width=15em, text centered, 
+			node distance=1.5cm,
+			%rounded corners, 
+		%	minimum height=3em
+		},
+		loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+			text width=15em, text centered,  
+			%node distance=2.5cm,% minimum height=3em
+		},
+	cloud/.style={draw, ellipse,%fill=red!20, 
+		node distance=2.5cm, minimum height=2em
+	},
+	input/.style={ % requires library shapes.geometric
+		draw,
+		trapezium ,
+		trapezium left angle=60,
+		trapezium right angle=120,node distance=2.5cm,
+	},
+	line/.style={draw, very thick, %color=black!50,
+		-latex'}	
+	}
+%	\begin{center}
+		\begin{tikzpicture}[scale=1, 
+			%node distance = 2.0cm, 
+			auto]
+			% Place nodes
+			\node [cloud] (init) {Inizio};
+			\node [input, below of=init] (passo1) {Leggo le coordinate dei punti};
+			\node [block, below of=passo1] (passo2) {Calcolo lunghezze dei lati $a$, $b$ e $c$ };
+			\node [block, below of=passo2] (passo3) {Calcolo il perimetro $2p$};
+			\node [block, below of=passo3] (passo4) {Calcolo il semiperimetro $p$};
+			\node [block, below of=passo4] (passo5) {Calcolo $p-a$};
+			\node [block, below of=passo5] (passo6) {Calcolo $p-b$};
+			\node [block, below of=passo6] (passo7) {Calcolo $p-c$};
+			\node [block, below of=passo7] (passo8) {Calcolo\\ $p(p-a)(p-b)(p-c)$};
+				\node [block, below of=passo7] (passo8) {Calcolo\\ $p(p-a)(p-b)(p-c)$};
+					\node [block, below of=passo8] (passo9) {Area=\\ $\sqrt{p(p-a)(p-b)(p-c)}$};
+					\node [cloud, below of=passo9] (passo10) {Fine};	
+
+			\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+			\path [line] (passo2) -- (passo3);
+			\path [line] (passo3) -- (passo4);
+			\path [line] (passo4) -- (passo5);
+			\path [line] (passo5) -- (passo6);
+			\path [line] (passo6) -- (passo7);
+			\path [line] (passo7) -- (passo8);
+			\path [line] (passo8) -- (passo9);
+			\path [line] (passo9) -- (passo10);
+		\end{tikzpicture}
+%	\end{center}
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass[10pt,a4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.misc,shapes.geometric,positioning}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\tikzset{
+		decision/.style={diamond, draw, %fill=blue!20,
+			text width=4.5em, text badly centered, 
+			node distance=2cm, inner sep=0pt
+		},
+		block/.style={rectangle, draw, %fill=blue!20,
+			text width=15em, text centered, 
+			node distance=2.0cm,
+			%rounded corners, %minimum height=3em
+		},
+		loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+			text width=15em, text centered,  
+			%node distance=2.5cm,% minimum height=3em
+		},
+	cloud/.style={draw, ellipse,%fill=red!20, 
+		node distance=2.5cm, minimum height=2em
+	},
+	input/.style={ % requires library shapes.geometric
+		draw,
+		trapezium,
+		trapezium left angle=60,
+		trapezium right angle=120,
+	},
+	line/.style={draw, very thick, %color=black!50,
+		-latex'},
+	connessione/.style={
+		draw,
+		circle,
+		radius=5pt,
+	}	
+	}
+		\begin{tikzpicture}[scale=1, node distance = 1.0cm, auto]
+			% Place nodes
+			\node [cloud] (init) {Inizio};
+			\node [block, below of=init] (passo1) {$ax^2+bx+c=0$};
+			\node [input, below of=passo1] (passo2) {Leggo $a$};
+			\node [input, below of=passo2] (passo3) {Leggo $b$};
+			\node [input, below of=passo3] (passo4) {Leggo $c$};
+			\node [block, below of=passo4] (passo5) {Calcolo $Delta=b^2-4ac$ };
+			\node [decision, below of=passo5] (passo6) {$Delta\geqslant 0$};
+			\node [block, below right=of passo6] (passo7) {$x_1=\dfrac{-b+\sqrt{Delta}}{2a}$};
+			\node [block, below of=passo7] (passo8) {$x_2=\dfrac{-b-\sqrt{Delta}}{2a}$};
+			\node [block, below of=passo8] (passo9) {Le soluzioni sono $x_1$ e $x_2$};
+		
+			\node [connessione, below of=passo6,node distance=9cm] (nodo1) {};
+			\node [cloud, below of=nodo1] (fine) {Fine};
+			\node [block, below left=of passo6] (passo10) {Non esistono soluzioni};
+			\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+			\path [line] (passo2) -- (passo3);
+			\path [line] (passo3) -- (passo4);
+			\path [line] (passo4) -- (passo5);
+			\path [line] (passo5) -- (passo6);
+			\path [line] (passo6.east)  -|node [near start] {Si} (passo7.north);
+			\path [line] (passo6.west)  -|node [near start] {No} (passo10.north);
+			\path [line] (passo7) -- (passo8);
+			\path [line] (passo8) -- (passo9);
+			\path [line] (passo9.south) |- (nodo1);
+			\path [line] (passo10.south) |- (nodo1);
+			\path[line](nodo1)--(fine);
+		\end{tikzpicture}
+\end{document}

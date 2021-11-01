@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.misc}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+
+	\tikzset{
+	decision/.style={diamond, draw, %fill=blue!20,
+		text width=4.5em, text badly centered, 
+		node distance=2.5cm, inner sep=0pt
+	},
+	block/.style={rectangle, draw, %fill=blue!20,
+		text width=15em, 
+		text centered, 
+		node distance=2.5cm,
+		%rounded corners, 
+		minimum height=3em
+	},
+	loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+		text width=15em, text centered,  
+		%node distance=2.5cm,% minimum height=3em
+	},
+	cloud/.style={draw, ellipse,%fill=red!20, 
+		node distance=1.5cm, minimum height=2em
+	},
+	input/.style={ % requires library shapes.geometric
+		draw,
+		trapezium,
+		trapezium left angle=60,
+		trapezium right angle=120,node distance=2.5cm,
+	},
+	line/.style={draw, very thick, %color=black!50,
+		-latex'},
+	connessione/.style={
+		draw,
+		circle,
+		radius=5pt,
+	}	
+}
+			\begin{tikzpicture}[scale=1, node distance = 1.5cm, auto]
+			% Place nodes
+			\node [cloud] (init) {Inizio somma};
+			\node [input, below of=init] (passo1) {Leggo le frazioni};
+			\node [decision, below of=passo1] (passo2) {Hanno lo  stesso denominatore?};
+			\node [block, right of=passo2, node distance=5cm] (scelta1) {La frazione somma ha lo stesso denominatore. Il numeratore è la somma algebrica dei numeratori};
+			\node [block, below of=passo2] (passo3) {Calcolo il $mcm$ dei denominatori};
+			\node [block, below of=passo3] (passo4) {Traccio la linea di frazione. Scrivo il $mcm$ sotto la linea};
+			\node [loop, below of=passo4, node distance=3cm] (passo5) {Per ogni frazione. Divido il $mcm$ per il denominatore e moltiplico il risultato per il numeratore. Scrivo con segno i risultati};
+			\node [block, below of=passo5] (passo6) {Sommo i risultati};
+			\node[connessione,below of=passo6] (nodo1) {};
+			\node [cloud, below of=nodo1] (fine) {Fine somma};
+			\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+			\path [line] (passo2) -- node [near start] {No} (passo3);
+			\path [line] (passo3) -- (passo4);
+			\path [line] (passo2) -- node [near start] {Si} (scelta1);
+			\path [line] (passo4) -- (passo5);
+			\path [line] (passo5) -- (passo6);
+			\path [line] (passo6) -- (nodo1);
+			\path [line] (nodo1)--(fine);
+			\path [line] (scelta1) |- (nodo1);
+
+		\end{tikzpicture}
+\end{document}
