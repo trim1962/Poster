@@ -23,7 +23,10 @@
 }%
 \makeatother
 \begin{document}
-	\smartdiagramset{back arrow disabled=true}
+	\smartdiagramset\smartdiagramset{
+		uniform color list=gray!60!black for 2 items,
+		back arrow disabled=true,
+	}
 	\smartdiagramadd[flow diagram:horizontal]{%
 		$(a+b)^2$, Calcolo\\ $a^2$,Calcolo\\ $b^2$,Calcolo\\ $2(a)(b)$, Ottengo\\ $a^2+b^2+2ab$	}{%
 		below of module1/,below of module2/,below of module3/,below of module4/,below of module5/
