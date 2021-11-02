@@ -84,7 +84,7 @@ radius=5pt,
 			\node(titolo) {\prdfrazioni};
 			\node [cloud,below=of titolo,node distance=1cm] (init) {Inizio};
 			\node [block, below of=init] (passo1) {Semplifico l'espressione};
-			\node [block, below of=passo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
+			\node [input, below of=passo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
 			\node [decision, below of=passo2] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
 			\node [print, below of=decisione1,node distance=3cm] (sceltasi1) {La trascrivo uguale a sinistra (prima) dell'uguale};
 			\node [print, right of=decisione1,node distance=6cm] (sceltano1) {La trascrivo cambiata di segno a sinistra  prima dell'uguale};
