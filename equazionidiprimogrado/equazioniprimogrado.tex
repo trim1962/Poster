@@ -111,6 +111,8 @@ radius=5pt,
 			\path [line] (decisione2) --node[near start]{Si}  (nodo3);
 			\path [line] (nodo3) --  (passo3);
 			\path[line] (passo3)--(decisione3);
+			\path [line] (decisione3) -- node[near start] {No} (sceltano3);
+			\path [line] (decisione3) -- node[near start] {Si} (sceltasi3);
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
