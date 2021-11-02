@@ -91,7 +91,7 @@ radius=5pt,
 			\node [decision, below of=passo2,node distance=3cm] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
 			\node [print, below of=decisione1,node distance=3cm] (sceltasi1) {La trascrivo uguale a sinistra (prima) dell'uguale};
 			\node [print, right of=decisione1,node distance=6cm] (sceltano1) {La trascrivo cambiata di segno a sinistra  (prima) dell'uguale};
-			\node[connessione,below of=sceltasi1,node distance=1.5cm] (nodo2) {};
+			\node[connessione,below of=sceltasi1,node distance=2cm] (nodo2) {};
 			\node [decision, below of=nodo2] (decisione2) {Arrivato a destra?};
 			\node[connessione,below of=decisione2,node distance=2cm] (nodo3) {};
 		\node [input, below of=nodo3,node distance=2cm] (passo3) {Leggo l'espressione da sinistra verso destra cercando i numeri};
