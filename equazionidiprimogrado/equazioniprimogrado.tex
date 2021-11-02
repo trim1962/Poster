@@ -95,9 +95,8 @@ radius=5pt,
 			\node[connessione,below of=decisione2,node distance=2cm] (node3) {};
 		\node [input, below of=node3,node distance=2cm] (passo3) {Leggo l'espressione da sinistra verso destra cercando i numeri};
 		\node [decision, below of=passo3,node distance=4cm] (decisione3) {Il numero è a sinistra (prima) dell'uguale?};
-%			\node [print, right of=decisione2,node distance=6cm] (sceltano2) {La trascrivo cambiata di segno a sinistra  prima dell'uguale};
-%			\node [print, below of=passo6] (passo7) {Numeratore prodotto dei numeratori };
-%			\node [print, below of=passo7] (passo8) {Denominatore prodotto dei denominatori};
+	\node [print, below of=decisione3,node distance=3cm] (sceltasi3) {La trascrivo uguale a sinistra (prima) dell'uguale};
+\node [print, right of=decisione3,node distance=6cm] (sceltano3) {La trascrivo cambiata di segno a sinistra  prima dell'uguale};
 %			\node [cloud, below of=passo8] (fine) {Fine prodotto};
 
 %			\path [line] (init) -- (passo1);
