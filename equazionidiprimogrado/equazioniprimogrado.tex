@@ -93,7 +93,7 @@ radius=5pt,
 			\node [print, right of=decisione1,node distance=6cm] (sceltano1) {La trascrivo cambiata di segno a sinistra  (prima) dell'uguale};
 			\node[connessione,below of=sceltasi1,node distance=1.5cm] (nodo2) {};
 			\node [decision, below of=nodo2,node distance=2.0cm] (decisione2) {Arrivato a destra?};
-			\node[connessione,below of=decisione2,node distance=2cm] (nodo3) {};
+			\node[connessione,below of=decisione2,node distance=1cm] (nodo3) {};
 		\node [input, below of=nodo3,node distance=2cm] (passo3) {Leggo l'espressione da sinistra verso destra cercando i numeri};
 		\node [decision, below of=passo3,node distance=4cm] (decisione3) {Il numero è a sinistra (prima) dell'uguale?};
 	\node [print, below of=decisione3,node distance=3cm] (sceltasi3) {La trascrivo cambiato di segno a destra (dopo) dell'uguale};
