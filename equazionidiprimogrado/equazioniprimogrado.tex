@@ -81,8 +81,8 @@ radius=5pt,
 			 auto]
 			% Place nodes
 			\node(titolo) {\prdfrazioni};
-			\node [cloud,below=of titolo,node distance=1cm] (init) {Inizio prodotto};
-			\node [input, below of=init] (passo1) {Leggo prima frazione};
+			\node [cloud,below=of titolo,node distance=1cm] (init) {Inizio};
+			\node [block, below of=init] (passo1) {Semplifico };
 			\node [block, below of=passo1] (passo2) {Semplifico la frazione};
 			\node [input, below of=passo2] (passo3) {Leggo la seconda frazione};
 			\node [block, below of=passo3] (passo4) {Semplifico la frazione};
