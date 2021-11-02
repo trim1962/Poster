@@ -1,0 +1,106 @@
+\documentclass[10pt,A4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.misc,shapes.symbols}
+\usetikzlibrary{positioning}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\newcommand{\prdfrazioni}{\begin{tikzpicture}[thick]
+		\def\x{2.8mm}
+		\def\h{2.4mm}
+		\def\dist{12mm}%1cm
+		\node at (0,0) {$\displaystyle \frac{a}{b}$};
+		\node at (\dist,0) {$\displaystyle \frac{c}{d}$};
+		\node at (1.4*\dist,0) {$\displaystyle =$};
+		\node at (2.0*\dist,0) {$\displaystyle \frac{a\cdot c}{b\cdot d}$};
+		% collegamento termini
+		\draw[-stealth] (\x, \h)--(\dist-\x,\h); 
+		\draw[-stealth] (\x,-\h)--node [near start] {$\cdot$}(\dist-\x, -\h);
+	\end{tikzpicture}%
+}
+%\renewcommand{\gitMarkFormat}{\color{blue}\sffamily\bfseries}
+\begin{document}
+\tikzset{
+	decision/.style={diamond, draw, %fill=blue!20,
+		text width=4.5em, text badly centered, 
+		node distance=3.5cm, inner sep=0pt
+	},
+	block/.style={rectangle, draw, %fill=blue!20,
+		%text width=15em, 
+		text centered, 
+		node distance=1.5cm,
+		%rounded corners, 
+		%minimum height=3em
+	},
+	loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+		text width=15em, text centered,  
+		node distance=2.5cm,% minimum height=3em
+	},
+	cloud/.style={draw, ellipse,%fill=red!20, 
+		node distance=1.5cm, minimum height=2em
+	},
+	input/.style={ % requires library shapes.geometric
+		draw,
+		node distance=1.5cm,
+		trapezium,
+		trapezium left angle=60,
+		trapezium right angle=120,
+	},
+	line/.style={draw, very thick, %color=black!50,
+		-latex'},
+		print/.style={ % requires library shapes.symbols
+		draw,
+		tape,
+		tape bend top=none
+	},
+connessione/.style={
+draw,
+circle,
+radius=5pt,
+}
+}
+%	\begin{center}
+
+		\begin{tikzpicture}[scale=1, %node distance = 2.5cm,
+			 auto]
+			% Place nodes
+			\node(titolo) {\prdfrazioni};
+			\node [cloud,below=of titolo,node distance=1cm] (init) {Inizio prodotto};
+			\node [input, below of=init] (passo1) {Leggo prima frazione};
+			\node [block, below of=passo1] (passo2) {Semplifico la frazione};
+			\node [input, below of=passo2] (passo3) {Leggo la seconda frazione};
+			\node [block, below of=passo3] (passo4) {Semplifico la frazione};
+			\node [block, below of=passo4] (passo5) {Semplifico le frazioni in croce};
+			\node [print, below of=passo5] (passo6) {Traccio la linea di frazione};
+			\node [print, below of=passo6] (passo7) {Numeratore prodotto dei numeratori };
+			\node [print, below of=passo7] (passo8) {Denominatore prodotto dei denominatori};
+			\node [cloud, below of=passo8] (fine) {Fine prodotto};
+
+			\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+     		\path [line] (passo2) --  (passo3);
+     		\path [line] (passo3) --  (passo4);
+     		\path [line] (passo4) --  (passo5);
+			\path [line] (passo5) --  (passo6);
+			\path [line] (passo6) --  (passo7);
+			\path [line] (passo7) --  (passo8);
+			\path [line] (passo8) --  (fine);
+		\end{tikzpicture}
+%	\end{center}
+\end{document}
