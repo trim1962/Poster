@@ -85,7 +85,7 @@ radius=5pt,
 			\node [input, below of=init] (passo1) {Leggi numeri};
 			\node[connessione,below of=passo1] (nodo1) {};
 			\node[loop,below of=nodo1] (loop1) {Per ogni numero};
-			\node[block] (passo2) {Scomponi il numero in fattori primi};
+			\node[block,below of=loop1] (passo2) {Scomponi il numero in fattori primi};
 			
 			
 		\end{tikzpicture}
