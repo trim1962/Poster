@@ -105,6 +105,7 @@ radius=5pt,
 \node[decision,below of=passo4,node distance=3cm] (decisione5) {La somma delle incognite è zero?};
 \node[decision,right of=decisione5,node distance=4cm] (decisione6) {La somma dei numeri è zero?};
 \node[print,right of=decisione6, node distance =5cm] (sceltasi6) {Equazione indeterminata};
+\node[print,below of=decisione6, node distance =5cm] (sceltano6) {Equazione impossibile};
 %			\node [cloud, below of=passo8] (fine) {Fine prodotto};
 
 			\path [line] (init) -- (passo1);
