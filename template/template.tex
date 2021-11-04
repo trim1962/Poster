@@ -80,27 +80,10 @@ radius=5pt,
 		\begin{tikzpicture}[scale=1, %node distance = 2.5cm,
 			 auto]
 			% Place nodes
-			\node(titolo) {\prdfrazioni};
-			\node [cloud,below=of titolo,node distance=1cm] (init) {Inizio prodotto};
-			\node [input, below of=init] (passo1) {Leggo prima frazione};
-			\node [block, below of=passo1] (passo2) {Semplifico la frazione};
-			\node [input, below of=passo2] (passo3) {Leggo la seconda frazione};
-			\node [block, below of=passo3] (passo4) {Semplifico la frazione};
-			\node [block, below of=passo4] (passo5) {Semplifico le frazioni in croce};
-			\node [print, below of=passo5] (passo6) {Traccio la linea di frazione};
-			\node [print, below of=passo6] (passo7) {Numeratore prodotto dei numeratori };
-			\node [print, below of=passo7] (passo8) {Denominatore prodotto dei denominatori};
-			\node [cloud, below of=passo8] (fine) {Fine prodotto};
-
-			\path [line] (init) -- (passo1);
-			\path [line] (passo1) -- (passo2);
-     		\path [line] (passo2) --  (passo3);
-     		\path [line] (passo3) --  (passo4);
-     		\path [line] (passo4) --  (passo5);
-			\path [line] (passo5) --  (passo6);
-			\path [line] (passo6) --  (passo7);
-			\path [line] (passo7) --  (passo8);
-			\path [line] (passo8) --  (fine);
+			
+			\node [cloud] (init) {Inizio};
+			\node [input, below of=init] (passo1) {Leggi numeri prima frazione};
+			
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
