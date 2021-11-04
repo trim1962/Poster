@@ -129,13 +129,14 @@ radius=5pt,
 			\path[line] (nodo4)--(decisione4);
 			\path[line] (decisione4.west)--node[near start]{No}++(-3,0)|-(nodo3);
 			\path[line] (decisione4)--(passo4);
-			\path[passo5]--(nodo5);
+			
 				\path[line] (passo4)--(decisione5);
 				\path[line] (decisione5)--node [near start]{Si}(decisione6);
 				\path[line] (decisione6)--node [near start]{Si}(sceltasi6);
 				\path[line] (decisione6)--node [near start]{No}(sceltano6);
 			\path[line] (decisione5)--node [near start]{No}(sceltano5);
 			\path[line] (sceltano5)--(passo5);
+			\path[passo5]--(nodo5);
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
