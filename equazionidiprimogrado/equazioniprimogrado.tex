@@ -103,6 +103,7 @@ radius=5pt,
 \node[block,below of=decisione4,node distance=2.5cm] (passo4) {Sommo le incognite, Sommo i numeri};
 \node[decision,below of=passo4,node distance=3cm] (decisione5) {La somma delle incognite è zero?};
 \node[decision,right of=decisione5,node distance=4cm] (decisione6) {La somma dei numeri è zero?};
+\node[print,right of=decisione6] (node name) {Equazione indeterminata};
 %			\node [cloud, below of=passo8] (fine) {Fine prodotto};
 
 			\path [line] (init) -- (passo1);
@@ -126,7 +127,7 @@ radius=5pt,
 			\path[line] (decisione4.west)--node[near start]{No}++(-3,0)|-(nodo3);
 			\path[line] (decisione4)--(passo4);
 				\path[line] (passo4)--(decisione5);
-				\path[line] (decisione5)--(decisione6);
+				\path[line] (decisione5)--(decisione6 );
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
