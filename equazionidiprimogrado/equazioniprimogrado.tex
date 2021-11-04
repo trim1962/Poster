@@ -109,6 +109,7 @@ radius=5pt,
 \node[print,left of=decisione5, node distance =5.0cm] (sceltano5) {Equazione determinata};
 \node[print,below of=sceltano5, node distance =2cm] (passo5) {Soluzione $x=\displaystyle \frac{b}{a}$};
 \node[connessione,below of=sceltano6] (nodo5) {};
+	\node [cloud] (stop) {Fine};
 			\path [line] (init) -- (passo1);
 			\path [line] (passo1) -- (nodo1);
      		\path [line] (nodo1) --  (passo2);
@@ -139,6 +140,7 @@ radius=5pt,
 			\path[line](passo5)|-(nodo5);
 			\path[line] (sceltano6)--(nodo5);
 			\path[line] (sceltasi6)|-(nodo5);
+			\path[line](nodo5)--(stop);
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
