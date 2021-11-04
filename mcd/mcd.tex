@@ -49,7 +49,7 @@
 		%minimum height=3em
 	},
 	loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
-		text width=15em, text centered,  
+		text width=10em, text centered,  
 		node distance=1cm,% minimum height=3em
 	},
 	cloud/.style={draw, ellipse,%fill=red!20, 
@@ -89,7 +89,7 @@ radius=5pt,
 			\node[decision,below of=passo2] (decisione1) {I numeri sono finiti?};
 			\node[block,below of=decisione1,node distance=2cm
 			] (sceltasi1) {Allineo le scomposizioni ottenute};
-			\node[decision,below of=sceltasi1] (node name) {Vi sono fattori comuni?};
+			\node[decision,below of=sceltasi1] (decisione1) {Vi sono fattori comuni?};
 			
 		\end{tikzpicture}
 %	\end{center}
