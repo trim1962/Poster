@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclareMathOperator{\MCD}{MCD}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,shapes.misc,shapes.symbols}
 \usetikzlibrary{positioning}
@@ -89,8 +90,8 @@ radius=5pt,
 			\node[decision,below of=passo2] (decisione1) {I numeri sono finiti?};
 			\node[block,below of=decisione1,node distance=2cm
 			] (sceltasi1) {Allineo le scomposizioni ottenute};
-			\node[decision,below of=sceltasi1] (decisione1) {Vi sono fattori comuni?};
-			
+			\node[decision,below of=sceltasi1] (decisione2) {Vi sono fattori comuni?};
+			\node[prinr,right of=decisione2] (sceltano2) {$\MCD=1$};
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
