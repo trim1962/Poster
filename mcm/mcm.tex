@@ -81,7 +81,6 @@ radius=5pt,
 
 		\begin{tikzpicture}[scale=1, %node distance = 2.5cm,
 			 auto]
-			% Place nodes
 			
 			\node [cloud] (init) {Inizio};
 			\node [input, below of=init] (passo1) {Leggi numeri};
@@ -91,11 +90,8 @@ radius=5pt,
 			\node[decision,below of=passo2] (decisione1) {I numeri sono finiti?};
 			\node[block,below of=decisione1,node distance=2.5cm
 			] (sceltasi1) {Allineo le scomposizioni ottenute};
-	%		\node[decision,below of=sceltasi1,node distance=2.5cm] (decisione2) {Vi sono fattori comuni?};
-		%\node[print,right of=decisione2,node distance=4cm] (sceltano2) {$\MCD=1$};
 			\node[block,below of=sceltasi1,node distance=2cm] (passo2a) {Prendo i fattori comuni e non comuni con il maggiore esponente.};
 			\node[print,below of=passo2a,node distance=2cm] (passo3) {$\mcm$ è il prodotto dei fattori trovati};
-			%\node[connessione,below of=passo3] (nodo2) {};
 			\node[cloud,below of=passo3](fine){Fine};
 			\path[line](init)--(passo1);
 			\path[line](passo1)--(nodo1);
@@ -105,12 +101,7 @@ radius=5pt,
 			\path[line](decisione1)--node[near start]{Si}(sceltasi1);
 			\path[line](decisione1.west)--node[near start]{No}++(-1,0)|-(nodo1);
 			\path[line](sceltasi1)--(passo2a);
-%			\path[line](decisione2)--node[near start]{No}(sceltano2);
-	%		\path[line](decisione2)--node[near start]{Si}(sceltasi2);
-%	\path[line](sceltasi2)--(passo3);
-\path[line](passo2a)--(passo3);
+			\path[line](passo2a)--(passo3);
 			\path[line](passo3)--(fine);
-%			\path[line](nodo2)--(fine);
-%			\path[line](sceltano2)|-(nodo2);
 			\end{tikzpicture}
 \end{document}
