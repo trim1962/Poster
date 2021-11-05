@@ -94,7 +94,7 @@ radius=5pt,
 	%		\node[decision,below of=sceltasi1,node distance=2.5cm] (decisione2) {Vi sono fattori comuni?};
 		%\node[print,right of=decisione2,node distance=4cm] (sceltano2) {$\MCD=1$};
 			\node[block,below of=sceltasi1,node distance=3cm] (passo2a) {Prendo i fattori comuni con il minore esponente};
-			\node[print,below of=passo2a,node distance=2cm] (passo3) {$\MCD$ è il prodotto dei fattori trovati};
+			\node[print,below of=passo2a,node distance=2cm] (passo3) {$\mcm$ è il prodotto dei fattori trovati};
 			\node[connessione,below of=passo3] (nodo2) {};
 			\node[cloud,below of=nodo2](fine){Fine};
 			\path[line](init)--(passo1);
