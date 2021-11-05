@@ -105,6 +105,7 @@ radius=5pt,
 			\path[line](decisione1.west)--node[near start]{No}++(-1,0)|-(nodo1);
 			\path[line](sceltasi1)--(decisione2);
 			\path[line](decisione2)--node[near start]{No}(sceltano2);
-				\path[line](decisione2)--node[near start]{Si}(sceltasi2);
+			\path[line](decisione2)--node[near start]{Si}(sceltasi2);
+			\path[line](sceltasi2)--(passo3);
 			\end{tikzpicture}
 \end{document}
