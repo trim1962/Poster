@@ -77,11 +77,9 @@ circle,
 radius=5pt,
 }
 }
-%	\begin{center}
 
 		\begin{tikzpicture}[scale=1, %node distance = 2.5cm,
-			 auto]
-			
+			 auto]		
 			\node [cloud] (init) {Inizio};
 			\node [input, below of=init] (passo1) {Leggi numeri};
 			\node[connessione,below of=passo1] (nodo1) {};
@@ -103,5 +101,5 @@ radius=5pt,
 			\path[line](sceltasi1)--(passo2a);
 			\path[line](passo2a)--(passo3);
 			\path[line](passo3)--(fine);
-			\end{tikzpicture}
+	\end{tikzpicture}
 \end{document}
