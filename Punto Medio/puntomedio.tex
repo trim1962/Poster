@@ -97,33 +97,8 @@ radius=5pt,
 			\path [line] (passo1) -- (passo2);
      		\path [line] (passo2) --  (passo3);
     		\path [line] (passo3) --  (passo4);
-%     		\path [line] (decisione1) -- node[near start] {No} (sceltano1);
-%     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
-%			\path [line] (sceltasi1) --  (nodo2);
-%			\path [line] (sceltano1) |-  (nodo2);
-%			\path[line]  (nodo2)--(decisione2);
-%			\path[line] (decisione2.west)--node[near start]{No}++(-3,0)|-(nodo1);
-%			\path [line] (decisione2) --node[near start]{Si}  (nodo3);
-%			\path [line] (nodo3) --  (passo3);
-%			\path[line] (passo3)--(decisione3);
-%			\path [line] (decisione3) -- node[near start] {No} (sceltano3);
-%			\path [line] (decisione3) -- node[near start] {Si} (sceltasi3);
-%			\path[line] (sceltasi3)--(nodo4);
-%			\path[line] (sceltano3)|-(nodo4);
-%			\path[line] (nodo4)--(decisione4);
-%			\path[line] (decisione4.west)--node[near start]{No}++(-3,0)|-(nodo3);
-%			\path[line] (decisione4)--(passo4);
-%			
-%				\path[line] (passo4)--(decisione5);
-%				\path[line] (decisione5)--node [near start]{Si}(decisione6);
-%				\path[line] (decisione6)--node [near start]{Si}(sceltasi6);
-%				\path[line] (decisione6)--node [near start]{No}(sceltano6);
-%			\path[line] (decisione5)--node [near start]{No}(sceltano5);
-%			\path[line] (sceltano5)--(passo5);
-%			\path[line](passo5)|-(nodo5);
-%			\path[line] (sceltano6)--(nodo5);
-%			\path[line] (sceltasi6)|-(nodo5);
-%			\path[line](nodo5)--(stop);
+     		\path [line] (passo4) -- (passo5);
+     		\path [line] (passo5) -- (stop);
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
