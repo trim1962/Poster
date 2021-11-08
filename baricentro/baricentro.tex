@@ -88,9 +88,10 @@ radius=5pt,
 			\node [cloud] (init) {Inizio};
 			\node [input, below of=init,node distance=2cm] (passo1) {Leggo le coordinate del punto $A(x_1,y_1)$};
 	\node [input, below of=passo1, node distance=2cm] (passo2) {Leggo le coordinate del punto $B(x_2,y_2)$};		
-		\node [block, below of=passo2, node distance=2cm] (passo3) {Sommo $x_1+x_2$};
-		\node [block, below of=passo3, node distance=2cm] (passo4) {Sommo $y_1+y_2$};	
-		\node [print, below of=passo4, node distance=2cm] (passo5) {Scrivo $M\left(\dfrac{x_1+x_2}{2},\dfrac{y_1+y_2}{2}\right)$};
+	\node [input, below of=passo2, node distance=2cm] (passo2a) {Leggo le coordinate del punto $C(x_3,y_3)$};		
+		\node [block, below of=passo2a, node distance=2cm] (passo3) {Sommo $x_1+x_2+x_3$};
+		\node [block, below of=passo3, node distance=2cm] (passo4) {Sommo $y_1+y_2+y_3$};	
+		\node [print, below of=passo4, node distance=2cm] (passo5) {Scrivo $M\left(\dfrac{x_1+x_2+x_3}{3},\dfrac{y_1+y_2+y_3}{3}\right)$};
 		
 	\node [cloud, below of=passo5, node distance=2cm] (stop) {Fine};
 			\path [line] (init) -- (passo1);
