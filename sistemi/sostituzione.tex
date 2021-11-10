@@ -87,10 +87,10 @@ radius=5pt,
 			% Place nodes
 			\node [cloud] (init) {Inizio};
 			\node[input, below of=init] (pass1) {Leggo il sistema};
-			\node[connessione,below of=pass1, node distance=3cm] (nodo1) {};
+			\node[connessione,below of=pass1] (nodo1) {};
 			\node[decision,below of=nodo1,node distance=2cm ] (dec1) {Il sistema è in forma normale?};
 			
-		\node [block,  right of=dec1] (sno1) {Trasformo il sistema in forma normale};
+		\node [block,  right of=dec1, node distance=2cm] (sno1) {Trasformo il sistema in forma normale};
 %			\node [decision, below of=passo2,node distance=3cm] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
 %			\node [print, below of=decisione1,node distance=3cm] (sceltasi1) {La trascrivo uguale a sinistra (prima) dell'uguale};
 %			\node [print, rirightght of=decisione1,node distance=6cm] (sceltano1) {La trascrivo cambiata di segno a sinistra  (prima) dell'uguale};
