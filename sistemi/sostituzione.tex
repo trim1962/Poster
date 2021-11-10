@@ -87,7 +87,7 @@ radius=5pt,
 			% Place nodes
 			\node [cloud] (init) {Inizio};
 			\node[input, below of=init] (pass1) {Leggo il sistema};
-			\node[connessione,below of=pass1] (nodo1) {};
+			\node[connessione,below of=pass1, node distance=3cm] (nodo1) {};
 			\node[decision,below of=nodo1,node distance=2cm ] (dec1) {Il sistema è in forma normale?};
 			
 		\node [block,  right of=dec1] (sno1) {Trasformo il sistema in forma normale};
