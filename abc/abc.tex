@@ -122,6 +122,10 @@ radius=5pt,
 \path [line] (dec3Si) --  (nodo2);
 \path [line] (nodo2) --  (blocco2);
 \path [line] (blocco2) --  (decisione4);
+\path [line] (decisione4) --node[near start]{No}  (dec4No);
+\path [line] (decisione4) --node[near start]{Si}  (dec4Si);
+\path [line] (dec4No) |-  (nodo4);
+\path [line] (dec4Si) --  (nodo4);
 %     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
 %			\path [line] (sceltasi1) --  (nodo2);
 %			\path [line] (sceltano1) |-  (nodo2);
