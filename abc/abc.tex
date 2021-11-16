@@ -80,12 +80,12 @@ circle,
 radius=5pt,
 }
 }
-%	\begin{center}
+
 
 		\begin{tikzpicture}[scale=1, %node distance = 2.5cm,
 			 auto]
-			% Place nodes
-			\node [cloud] (init) {Inizio};
+		\node (zero) {Forma normale ax^2+bx+c=0};
+			\node [cloud, below of=zero] (init) {Inizio};
 			\node [block, below of=init] (passo1) {Semplifico l'espressione};
 			\node[connessione,below of=passo1] (nodo1) {};
 			\node [input, below of=nodo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
@@ -142,5 +142,4 @@ radius=5pt,
 			\path[line] (sceltasi6)|-(nodo5);
 			\path[line](nodo5)--(stop);
 		\end{tikzpicture}
-%	\end{center}
 \end{document}
