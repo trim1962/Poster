@@ -91,9 +91,10 @@ radius=5pt,
 			\node[block, right of=decisione1, node distance=4.5cm] (dec1No) {Sommo i termini simili};
 			\node[block, below of=decisione1, node distance=3cm] (dec1Si) {Cerco il termine di secondo grado};
 			\node [decision, below of=dec1Si,node distance=3cm] (decisione2) {
-				esiste un termine di secondo grado?};
+				Esiste un termine di secondo grado?};
 			\node[block, right of=decisione2, node distance=4.5cm] (dec2No) {$a=0$ l'equazione non è di secondo grado};% goto stop
-			\node[block, below of=decisione2, node distance=3cm] (dec2Si) {$a$ è la parte numerica del termine di secondo grado};%
+			\node[block, below of=decisione2, node distance=3cm] (dec2Si) {$a$ è la parte numerica del termine di secondo grado};
+			\node[block, below of=dec2Si, node distance=3cm] (blocco1) {Cerco il termine di primo grado};
 %			\node [input, below of=nodo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
 %			\node [decision, below of=passo2,node distance=3cm] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
 %			\node [print, below of=decisione1,node distance=3cm] (sceltasi1) {La trascrivo uguale a sinistra (prima) dell'uguale};
