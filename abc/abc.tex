@@ -100,6 +100,7 @@ radius=5pt,
 \node[block, below of=decisione3, node distance=3cm] (dec3Si) {$b$ è la parte numerica del termine di primo grado};
 \node[connessione, below of=dec3Si] (nodo2) {};
 \node[block,below of=nodo2] (blocco2) {Cerco il termine noto};
+\node [decision, below of=blocco2,node distance=3cm] (decisione4) {Esiste un termine noto?};
 %	\node [cloud, below of=nodo5] (stop) {Fine};
 %			\path [line] (init) -- (passo1);
 %			\path [line] (passo1) -- (nodo1);
