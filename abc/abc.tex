@@ -87,9 +87,10 @@ radius=5pt,
 		\node (zero) {Forma normale $ax^2+bx+c=0$};
 			\node [cloud, below of=zero] (init) {Inizio};
 			\node[connessione,below of=init] (nodo1) {};
-			\node [decision, below of=init,node distance=3cm] (decisione1) {L'equazione è in forma normale?};
+			\node [decision, below of=nodo1,node distance=3cm] (decisione1) {L'equazione è in forma normale?};
 			\node[block, right of=decisione1, node distance=4cm] (dec1No) {Sommo i termini simili};
 			\node[block, below of=decisione1, node distance=3cm] (dec1Si) {Cerco il termine di secondo grado};
+			\node [decision, below of=dec1Si,node distance=3cm] (decisione2) {L'equazione è in forma normale?};
 %			\node [input, below of=nodo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
 %			\node [decision, below of=passo2,node distance=3cm] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
 %			\node [print, below of=decisione1,node distance=3cm] (sceltasi1) {La trascrivo uguale a sinistra (prima) dell'uguale};
