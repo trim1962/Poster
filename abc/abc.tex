@@ -101,7 +101,7 @@ radius=5pt,
 \node[connessione, below of=dec3Si,node distance=1.5cm] (nodo2) {};
 \node[block,below of=nodo2] (blocco2) {Cerco il termine noto};
 \node [decision, below of=blocco2,node distance=2.8cm] (decisione4) {Esiste un termine noto?};
-\node[block, right of=decisione4, node distance=3.5cm,text width=3em,] (dec4No) {$c=0$};
+\node[block, left of=decisione4, node distance=3.5cm,text width=3em,] (dec4No) {$c=0$};
 \node[block, below of=decisione4, node distance=2.5cm] (dec4Si) {$c$ è il termine noto};
 \node[connessione,below of=dec4Si,node distance=1cm] (nodo3) {};
 	\node [cloud, below of=nodo3] (stop) {Fine};
