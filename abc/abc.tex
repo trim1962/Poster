@@ -107,8 +107,8 @@ radius=5pt,
 	\node [cloud, below of=nodo3] (stop) {Fine};
 			\path [line] (init) -- (nodo1);
 			\path [line] (nodo1) -- (decisione1);
-     		\path [line] (decisione1) --  (dec1No);
-     		\path [line] (decisione1) --  (dec1Si);
+     		\path [line] (decisione1) --node[near start]{No}  (dec1No);
+     		\path [line] (decisione1) --node[near start]{Si}  (dec1Si);
 %    		\path [line] (passo2) --  (decisione1);
 %     		\path [line] (decisione1) -- node[near start] {No} (sceltano1);
 %     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
