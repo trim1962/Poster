@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+%\usepackage[a2paper,landscape]{geometry}
+%\usepackage[a2paper,landscape]{geometry}
+%\usepackage{lipsum}
+\usepackage{lmodern}
+\usepackage{enumerate}
+\usepackage[fleqn]{amsmath}
+\setlength{\mathindent}{0pt}
+\usepackage{etoolbox}
+\newcommand{\zerodisplayskips}{%
+	\setlength{\abovedisplayskip}{0pt}%
+	\setlength{\belowdisplayskip}{0pt}%
+	\setlength{\abovedisplayshortskip}{0pt}%
+	\setlength{\belowdisplayshortskip}{0pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+\usepackage[poster]{tcolorbox}
+\tcbuselibrary{listings}
+\pagestyle{empty}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.5cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\begin{tcbposter}[
+		coverage = {
+			spread,
+			interior style={
+				%top color=yellow,bottom color=yellow!50!red
+			},
+		%	watermark text={\LaTeX\ Poster},
+			%watermark color=yellow,	
+		},
+		poster = {
+			showframe=false,
+			%showframe,
+			columns=5,
+			rows=5}
+		]
+		% Here, we insert the poster content later
+		\posterbox{name=title,column=1,span=3.0,below=top}{
+			\resizebox{10cm}{!}{\bfseries\Huge Formulario}\\[3mm]
+			%Claudio Duchi claudio.duchi.doc@iisperugia.net
+		}
+%\posterbox[fit,adjusted title=Segni prodotto,halign=left,halign=flush left,  valign=top]{name=SegniProdotto,column=1,span=0.5,below=title}
+\posterbox[fit,adjusted title=Forma implicita,halign=left,halign=flush left,  valign=top]{name=SegniProdotto,column=1,span=1,below=title}
+{$ax+by+c=$}
+%\posterbox[fit,adjusted title=Segni somma]{name=SegniSomma,span=0.5,column=2,row=1,xshift=-6.0cm,below=title}
+\posterbox[fit,adjusted title=Segni somma]{name=SegniSomma,column=2,row=1,below=title}
+{	\begin{align*}
+		+2 +3=+5\\
+		-2-3=-5\\
+		-2+3=+1\\
+		+2-3=-1
+\end{align*}}
+%\posterbox[fit,adjusted title=Prodotti]{name=prodotti,span=.65,column=1,row=2,below=SegniProdotto}
+\posterbox[fit,adjusted title=Prodotti]{name=prodotti,column=1,row=2,span=1.5,below=SegniProdotto}
+{
+	\begin{align*}
+	&a(b+c)=ab+ac\\
+	&(a+b)(c+d)=ac+ad+bc+bd\\
+	&(a+b)^2=a^2+b^2+2ab\\
+	&(a+b)^2=(a+b)(a+b)\\
+	&(a-b)^2=a^2+b^2-2ab\\
+	&(a-b)^2=(a-b)(a-b)\\
+	&(a-b)(a+b)=a^2-b^2
+\end{align*}}
+%\posterbox[fit,adjusted title=Frazioni]{name=frazioni,span=0.5,column=2,row=1,below=title}
+\posterbox[fit,adjusted title=Frazioni]{name=frazioni,column=3,row=1,below=title}
+{\begin{align*}
+	&\dfrac{\dfrac{a}{b}}{\dfrac{c}{d}}=\dfrac{a}{b}\dfrac{d}{c}\\
+	&\dfrac{1}{\dfrac{a}{b}}=\dfrac{b}{a}
+\end{align*}}
+\posterbox[fit,adjusted title=Potenze]{name=potenze,column=2,row=2,xshift=2cm,,span=1.0,below=frazioni}
+{
+	\begin{align*}
+		&a^0=1\\
+		&0^0=?\\
+		&a^n\cdot a^m=a^{n+m}\\
+		&a^{n+m}=a^n\cdot a^m\\
+		&a^n\cdot b^n=(ab)^n\\
+		&(ab)^n=a^n\cdot b^n\\
+		&(a^n)^m=a^{nm}\\
+		&\left(\dfrac{a}{b}\right)^n=\dfrac{a^n}{b^m}\\
+		&\dfrac{a^n}{b^m}=\left(\dfrac{a}{b}\right)^n\\
+		&a^{-n}=\dfrac{1}{a^n}
+\end{align*}}
+\posterbox[fit,adjusted title=Equazioni primo grado,halign=left,halign=flush left,  valign=top]{name=EqnPrimoGrado,column=4,span=1,below=top}
+{\begin{align*}
+		&ax+b=0\\
+		&ax=-b\\
+		&x=-\dfrac{b}{a}
+\end{align*}}
+\posterbox[fit,adjusted title=Equazioni secondo grado,halign=left,halign=flush left,  valign=top]{name=EqnSecondoGrado,column=4,span=1.2,below=EqnPrimoGrado}
+{\begin{align*}
+		\intertext{Completa}
+		&ax^2+bx+c=0\\
+		&x_{1,2}=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}\\
+		&\Delta=b^2-4ac\\
+		\intertext{Spuria}
+		&ax^2+bx=0\\
+		&x(ax+b)=0\\
+		&x=0\\
+		&ax+b=0\\
+		&ax=-b\\
+		&x=-\dfrac{b}{a}
+		\intertext{Pura}
+		&ax^2+c=0\\
+		&ax^2=-c\\
+		&x=\pm\sqrt{-\dfrac{c}{a}}
+\end{align*}}
+%\posterbox[adjusted title=Segni ]{name=references,between=title and SegniProdotto
+%	then
+%	 2 between title and SegniProdotto
+% }{
+%	\begin{align*}
+%		+\times +=+\\
+%		-2-3=&-5\\
+%		-2+3=&+1\\
+%		+2-3=&-1
+%\end{align*}}
+%	\posterbox[adjusted title=Process]{name=process,column=2,span=2,above=references}{}
+%	\posterbox[adjusted title=Segni]{name=project,
+%		sequence=1 between title and bottom then 2 between title and process}{}
+	
+	\end{tcbposter}
+\end{document}
