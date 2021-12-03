@@ -23,13 +23,12 @@
 }%
 \makeatother
 \begin{document}
-	\smartdiagramset{back arrow disabled=true}
-	\smartdiagramadd[flow diagram:horizontal]{%
-		$(a+b)^2$, Calcolo\\ $a^2$,Calcolo\\ $b^2$,Calcolo\\ $2(a)(b)$
-	}{%
-		below of module1/,below of module2/,below of module3/,below of module4/
+\begin{center}
+	\smartdiagram[descriptive diagram]{
+		{Set up,The set up operation consist of..},
+		{Run, {After having set up the program, you must run..}},
+		{Analyse, You must check what did with analytical tools like..},
+		{Modify, {After the analysis, you can still modify or add..}},
 	}
-	%	\smartdiagramconnect{<-}{module1/additional-module1.center}
-	%	\smartdiagramconnect{-,line cap=round}{additional-module1.center/additional-module5.center}
-	%	\smartdiagramconnect{-}{module5/additional-module5.center}
+\end{center}
 \end{document}
