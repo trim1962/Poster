@@ -1,0 +1,35 @@
+\documentclass[10pt,a4paper,final]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\author{claudio Duchi}
+\title{Quadrato binomio}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage{gitinfo2}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\smartdiagramset{back arrow disabled=true}
+	\smartdiagramadd[flow diagram:horizontal]{%
+		$(a+b)^2$, Calcolo\\ $a^2$,Calcolo\\ $b^2$,Calcolo\\ $2(a)(b)$
+	}{%
+		below of module1/,below of module2/,below of module3/,below of module4/
+	}
+	%	\smartdiagramconnect{<-}{module1/additional-module1.center}
+	%	\smartdiagramconnect{-,line cap=round}{additional-module1.center/additional-module5.center}
+	%	\smartdiagramconnect{-}{module5/additional-module5.center}
+\end{document}
