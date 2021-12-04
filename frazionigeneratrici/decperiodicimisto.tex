@@ -1,0 +1,38 @@
+\documentclass[10pt,a4paper,final]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\author{claudio Duchi}
+\title{Quadrato binomio}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage{gitinfo2}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\section*{Da periodico semplice a frazione}
+\begin{center}
+	\smartdiagramset{set color list={white,white,white,white,white,white},
+	}
+	\smartdiagram[descriptive diagram]{
+		{1,{Inizio}},
+		{2,{Leggo il numero decimale periodico}},
+		{3, {Tolgo la virgola}},
+		{4, Scrivo il numero  usando le cifre della parte intera e del periodo},
+		{5, {Sottraggo al numero la sua parte intera e scrivo il risultato al numeratore}},{6,{Scrivo a denominatore tanti nove quante sono le cifre del periodo}},{7,{Fine}},
+	}
+\end{center}
+\end{document}
