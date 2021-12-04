@@ -1,0 +1,38 @@
+\documentclass[10pt,a4paper,final]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\author{claudio Duchi}
+\title{Quadrato binomio}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage{gitinfo2}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\section*{Da decimale finito a frazione}
+\begin{center}
+	\smartdiagramset{set color list={white,white,white,white,white,white},
+	}
+	\smartdiagram[descriptive diagram]{
+		{1,{Inizio}},
+		{2,{Leggo il numero decimale}},
+		{3, {Tolgo la virgola}},
+		{4, Scrivo il numero a denominatore},
+		{5, {Scrivo uno a numeratore seguito da tanti zeri per quante sono le cifre decimali}},{6,{Fine}},
+	}
+\end{center}
+\end{document}
