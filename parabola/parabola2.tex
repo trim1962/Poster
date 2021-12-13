@@ -184,50 +184,12 @@
 				\draw[color=black] (2.8,1.11) node {$V$};
 		\end{tikzpicture}
 	\end{center}}
+\posterbox[fit,adjusted title=Vertice,halign=left,halign=flush left,  valign=top]{name=concavita,column=1,row=3,span=1}
+{\[\begin{cases}
+		x=&-\dfrac{b}{2a}\\
+		y=&-\dfrac{\Delta}{4a}\\
+		\Delta=&b^2-4ac
+	\end{cases}\]}
 \end{tcbposter}
-\tikzstyle{decision} = [diamond, draw, fill=blue!20,
-text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, %fill=blue!20,
-text width=5em, text centered, , node distance=2.5cm,rounded corners, minimum height=3em]
-\tikzstyle{line} = [draw, very thick, %color=black!50,
--latex']
-\tikzstyle{cloud} = [draw, ellipse,%fill=red!20, 
-node distance=2.5cm, minimum height=2em]
-%\section*{Disegnare una parabola}
-\begin{center}
-	\begin{tikzpicture}[scale=1, node distance = 1.5cm, auto]
-	% Place nodes
-	\node [cloud] (init) {Inizio};
-	%\node [cloud, left of=init] (expert) {expert};
-%	\node [cloud, right of=init] (system) {system};
-	\node [block, below of=init] (passo1) {Concavità};
-	\node [block, below of=passo1] (passo2) {Vertice};
-	\node [block, below of=passo2] (passo3) {Intersezione asse x};
-	\node [block, below of=passo3] (passo4) {Intersezione asse y};
-	\node [block, below of=passo4] (passo5) {Trovare i punti};
-	\node [block, below of=passo5] (passo6) {Disegnare Parabola};
-	\node [cloud, below of=passo6] (fine) {Fine};
-	\path [line] (init) -- (passo1);
-	\path [line] (passo1) -- (passo2);
-	\path [line] (passo2) -- (passo3);
-		\path [line] (passo3) -- (passo4);
-		\path [line] (passo4) -- (passo5);
-		\path [line] (passo5) -- (passo6);
-		\path [line] (passo6) -- (fine);
-%	\node [block, below of=identify] (evaluate) {evaluate candidate models};
-%	\node [block, left of=evaluate, node distance=3cm] (update) {update model};
-%	\node [decision, below of=evaluate] (decide) {is best candidate better?};
-%	\node [block, below of=decide, node distance=3cm] (stop) {stop};
-%	% Draw edges
-%	\path [line] (init) -- (identify);
-%	\path [line] (identify) -- (evaluate);
-%	\path [line] (evaluate) -- (decide);
-%	\path [line] (decide) -| node [near start] {yes} (update);
-%	\path [line] (update) |- (identify);
-%	\path [line] (decide) -- node {no}(stop);
-%	\path [line,dashed] (expert) -- (init);
-%	\path [line,dashed] (system) -- (init);
-%	\path [line,dashed] (system) |- (evaluate);
-\end{tikzpicture}
-\end{center}
+
 \end{document}
