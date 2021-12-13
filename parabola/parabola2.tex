@@ -75,16 +75,7 @@
 \end{center}}
 
 
-\posterbox[fit,adjusted title=Vertice a positiva,halign=left,halign=flush left,  valign=top]{name=verticeuno,column=2,row=3,span=1}
-{\begin{center}
-	\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
-		\clip(-3.,-2.5) rectangle (3.,2.5);
-		\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2.0)-2});
-		\draw (0.,-2.5) -- (0.,2.5);
-			\draw [fill=black] (0.,-2.) circle (2.5pt);
-			\draw[color=black] (0.14,-1.67) node {$V$};
-	\end{tikzpicture}
-\end{center}}
+
 \posterbox[fit,adjusted title=Vertice a negativa,halign=left,halign=flush left,  valign=top]{name=verticedue,column=3,row=3,span=1}
 {\begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
@@ -190,6 +181,16 @@
 		y=&-\dfrac{\Delta}{4a}\\
 		\Delta=&b^2-4ac
 	\end{cases}\]}
+\posterbox[fit,adjusted title=Vertice a positiva,halign=left,halign=flush left,  valign=top]{name=verticeuno,column=2,row=3,span=1}
+{\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
+			\clip(-3.,-2.5) rectangle (3.,2.5);
+			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2.0)-2});
+			\draw (0.,-2.5) -- (0.,2.5);
+			\draw [fill=black] (0.,-2.) circle (2.5pt);
+			\draw[color=black] (0.14,-1.67) node {$V$};
+		\end{tikzpicture}
+\end{center}}
 \end{tcbposter}
 
 \end{document}
