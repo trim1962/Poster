@@ -43,8 +43,8 @@
 			%watermark color=yellow,	
 		},
 		poster = {
-			%showframe=false,
-			showframe,
+			showframe=false,
+			%showframe,
 			columns=3,
 			rows=5}
 		]
@@ -80,160 +80,171 @@
 		\Delta=&b^2-4ac
 	\end{cases}\]}
 
-\posterbox[fit,adjusted title=Vertice a positiva,halign=left,halign=flush left,  valign=top]{name=verticeuno,column=2,row=3,span=1}
-{\begin{center}
-	\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
-		\clip(-3.,-2.5) rectangle (3.,2.5);
-		\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2.0)-2});
-		\draw (0.,-2.5) -- (0.,2.5);
-			\draw [fill=black] (0.,-2.) circle (2.5pt);
-			\draw[color=black] (0.14,-1.67) node {$V$};
-	\end{tikzpicture}
-\end{center}}
-\posterbox[fit,adjusted title=Vertice a negativa,halign=left,halign=flush left,  valign=top]{name=verticedue,column=3,row=3,span=1}
-{\begin{center}
-\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
-	\clip(-3.,-2.5) rectangle (3.,2.5);
-	\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{0-1/2*(\x)^(2.0)+2});
-	\draw  (0.,-2.5) -- (0.,2.5);
-	
-		\draw [fill=black] (0.,2.) circle (2.0pt);
-		\draw[color=black] (0.14,2.33) node {$V$};
-	
-\end{tikzpicture}
-\end{center}}
-
-\posterbox[fit,adjusted title=Intersezione asse x. Delta zero,halign=left,halign=flush left,  valign=top]{name=deltanul,column=2,row=4}
+%\posterbox[fit,adjusted title=Vertice a positiva,halign=left,halign=flush left,  valign=top]{name=verticeuno,column=2,row=3,span=1}
+%{\begin{center}
+%	\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
+%		\clip(-3.,-2.5) rectangle (3.,2.5);
+%		\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2.0)-2});
+%		\draw (0.,-2.5) -- (0.,2.5);
+%			\draw [fill=black] (0.,-2.) circle (2.5pt);
+%			\draw[color=black] (0.14,-1.67) node {$V$};
+%	\end{tikzpicture}
+%\end{center}}
+%\posterbox[fit,adjusted title=Vertice a negativa,halign=left,halign=flush left,  valign=top]{name=verticedue,column=3,row=3,span=1}
+%{\begin{center}
+%\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
+%	\clip(-3.,-2.5) rectangle (3.,2.5);
+%	\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{0-1/2*(\x)^(2.0)+2});
+%	\draw  (0.,-2.5) -- (0.,2.5);
+%	
+%		\draw [fill=black] (0.,2.) circle (2.0pt);
+%		\draw[color=black] (0.14,2.33) node {$V$};
+%	
+%\end{tikzpicture}
+%\end{center}}
+\posterbox[fit,adjusted title=Fuoco,halign=left,halign=flush left,  valign=top]{name=Fuoco,column=2,row=3}
 {\[\begin{cases}
-		x_1=&\dfrac{-b}{2a}\\
-		x_2=&\dfrac{-b}{2a}\\
+		x=&-\dfrac{b}{2a}\\
+		y=&\dfrac{1-\Delta}{4a}\\
 	\end{cases}\]
-\[A(x_1,0)\]}
-\posterbox[fit,adjusted title=Intersezione asse x. Delta negativo,halign=left,halign=flush left,  valign=top]{name=deltaneg,column=3,row=4}
-{Nessuna soluzione}
-\posterbox[fit,adjusted title=Soluzioni distinte,halign=left,halign=flush left,  valign=top]{name=soldis,column=1,row=5,span=1}
-{\begin{center}
-		\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
-			\clip(-3.,-2.5) rectangle (3.,2.5);
-			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
-			\draw [domain=-3.:3.] plot(\x,{(-0.-0.*\x)/1.});
-				\draw [fill=black] (-2.,0.) circle (2.5pt);
-				\draw[color=black] (-2.08,-0.29) node {$B$};
-				\draw [fill=black] (2.,0.) circle (2.5pt);
-				\draw[color=black] (1.98,-0.33) node {$A$};
-		\end{tikzpicture}
-\end{center}}
-\posterbox[fit,adjusted title=Soluzioni coincidenti,halign=left,halign=flush left,  valign=top]{name=solcon,column=2,row=4,span=1,below=deltanul}
-{\begin{center}
-		\begin{tikzpicture}[line cap=round,line join=round1,x=0.75cm,y=0.75cm]
-			\clip(-3.,-2.5) rectangle (3.,2.5);
-			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
-			\draw [domain=-3.:3.] plot(\x,{(-2.-0.*\x)/1.});
-			
-				\draw [fill=black] (0.,-2.) circle (2.0pt);
-				\draw[color=black] (-0.08,-2.29) node {$A$};
-
-		\end{tikzpicture}
-\end{center}}
-\posterbox[fit,adjusted title=Nessuna Soluzione,halign=left,halign=flush left,  valign=top]{name=nosol,column=3,row=4,span=1,below=deltaneg}
-{\begin{center}
-		\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
-			\clip(-3.,-2.5) rectangle (3.,2.5);
-			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
-			\draw [domain=-3.:3.] plot(\x,{(-2.3-0.*\x)/1.});
-		\end{tikzpicture}
-\end{center}}
+}
+\posterbox[fit,adjusted title=Asse parabola,halign=left,halign=flush left,  valign=top]{name=AsseParabola,column=1,row=4}
+{\[x=-\dfrac{b}{2a}\]
+}
+\posterbox[fit,adjusted title=Direttrice,halign=left,halign=flush left,  valign=top]{name=direttrice,column=3,row=3}
+{\[y=-\dfrac{1+\Delta}{4a}\]
+}
+%\posterbox[fit,adjusted title=Intersezione asse x. Delta zero,halign=left,halign=flush left,  valign=top]{name=deltanul,column=2,row=4}
+%{\[\begin{cases}
+%		x_1=&\dfrac{-b}{2a}\\
+%		x_2=&\dfrac{-b}{2a}\\
+%	\end{cases}\]
+%\[A(x_1,0)\]}
+%\posterbox[fit,adjusted title=Intersezione asse x. Delta negativo,halign=left,halign=flush left,  valign=top]{name=deltaneg,column=3,row=4}
+%{Nessuna soluzione}
+%\posterbox[fit,adjusted title=Soluzioni distinte,halign=left,halign=flush left,  valign=top]{name=soldis,column=1,row=5,span=1}
+%{\begin{center}
+%		\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
+%			\clip(-3.,-2.5) rectangle (3.,2.5);
+%			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
+%			\draw [domain=-3.:3.] plot(\x,{(-0.-0.*\x)/1.});
+%				\draw [fill=black] (-2.,0.) circle (2.5pt);
+%				\draw[color=black] (-2.08,-0.29) node {$B$};
+%				\draw [fill=black] (2.,0.) circle (2.5pt);
+%				\draw[color=black] (1.98,-0.33) node {$A$};
+%		\end{tikzpicture}
+%\end{center}}
+%\posterbox[fit,adjusted title=Soluzioni coincidenti,halign=left,halign=flush left,  valign=top]{name=solcon,column=2,row=5,span=1}
+%{\begin{center}
+%		\begin{tikzpicture}[line cap=round,line join=round1,x=0.75cm,y=0.75cm]
+%			\clip(-3.,-2.5) rectangle (3.,2.5);
+%			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
+%			\draw [domain=-3.:3.] plot(\x,{(-2.-0.*\x)/1.});
+%			
+%				\draw [fill=black] (0.,-2.) circle (2.0pt);
+%				\draw[color=black] (-0.08,-2.29) node {$A$};
+%
+%		\end{tikzpicture}
+%\end{center}}
+%\posterbox[fit,adjusted title=Nessuna Soluzione,halign=left,halign=flush left,  valign=top]{name=nosol,column=3,row=4,span=1}
+%{\begin{center}
+%		\begin{tikzpicture}[line cap=round,line join=round,x=0.75cm,y=0.75cm]
+%			\clip(-3.,-2.5) rectangle (3.,2.5);
+%			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
+%			\draw [domain=-3.:3.] plot(\x,{(-2.3-0.*\x)/1.});
+%		\end{tikzpicture}
+%\end{center}}
 
 	\end{tcbposter}
-\begin{tcbposter}[
-	coverage = {
-		spread,
-		interior style={
-			%top color=yellow,bottom color=yellow!50!red
-		},
-		%	watermark text={\LaTeX\ Poster},
-		%watermark color=yellow,	
-	},
-	poster = {
-		showframe=false,
-		%showframe,
-		columns=3,
-		rows=5}
-	]
-	% Here, we insert the poster content later
-%	\posterbox{name=title,column=1,below=top}{
-%		\bfseries\Huge Parabola\\
-%	}
-	\posterbox[fit,adjusted title=Intersezione asse y,halign=left,halign=flush left,  valign=top]{name=interAssey,column=1,row=1}
-	{\[\begin{cases}
-			y=&ax^2+bx+c\\
-			x=&0\\
-		\end{cases}\]
-\[C(0,c)\]	
-}
-	\posterbox[fit,adjusted title=Intersezione asse y,halign=left,halign=flush left,  valign=top]{name=intAsseyG,column=2,row=1,span=1}
-	{\begin{center}
-		\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
-			\clip(-3.,-2.5) rectangle (3.,2.5);
-			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
-			\draw [->] (2.5,-2.5) -- (2.5,2.5);
-		
-				\draw [fill=black] (2.5,1.125) circle (2.5pt);
-				\draw[color=black] (2.8,1.11) node {$V$};
-		\end{tikzpicture}
-	\end{center}}
-\posterbox[fit,adjusted title=Intersezione asse x. Delta positivo,halign=left,halign=flush left,  valign=top]{name=deltapos,column=1,row=4}
-{\[\begin{cases}
-		x_1=&\dfrac{-b+\sqrt{b^2-4ac}}{2a}\\
-		x_2=&\dfrac{-b-\sqrt{b^2-4ac}}{2a}\\
-	\end{cases}\]
-	\[A(x_1,0)\]
-	\[B(x_2,0)\]
-}
-\end{tcbposter}
-\tikzstyle{decision} = [diamond, draw, fill=blue!20,
-text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, %fill=blue!20,
-text width=5em, text centered, , node distance=2.5cm,rounded corners, minimum height=3em]
-\tikzstyle{line} = [draw, very thick, %color=black!50,
--latex']
-\tikzstyle{cloud} = [draw, ellipse,%fill=red!20, 
-node distance=2.5cm, minimum height=2em]
-\section*{Disegnare una parabola}
-\begin{center}
-	\begin{tikzpicture}[scale=1, node distance = 1.5cm, auto]
-	% Place nodes
-	\node [cloud] (init) {Inizio};
-	%\node [cloud, left of=init] (expert) {expert};
-%	\node [cloud, right of=init] (system) {system};
-	\node [block, below of=init] (passo1) {Concavità};
-	\node [block, below of=passo1] (passo2) {Vertice};
-	\node [block, below of=passo2] (passo3) {Intersezione asse x};
-	\node [block, below of=passo3] (passo4) {Intersezione asse y};
-	\node [block, below of=passo4] (passo5) {Trovare i punti};
-	\node [block, below of=passo5] (passo6) {Disegnare Parabola};
-	\node [cloud, below of=passo6] (fine) {Fine};
-	\path [line] (init) -- (passo1);
-	\path [line] (passo1) -- (passo2);
-	\path [line] (passo2) -- (passo3);
-		\path [line] (passo3) -- (passo4);
-		\path [line] (passo4) -- (passo5);
-		\path [line] (passo5) -- (passo6);
-		\path [line] (passo6) -- (fine);
-%	\node [block, below of=identify] (evaluate) {evaluate candidate models};
-%	\node [block, left of=evaluate, node distance=3cm] (update) {update model};
-%	\node [decision, below of=evaluate] (decide) {is best candidate better?};
-%	\node [block, below of=decide, node distance=3cm] (stop) {stop};
-%	% Draw edges
-%	\path [line] (init) -- (identify);
-%	\path [line] (identify) -- (evaluate);
-%	\path [line] (evaluate) -- (decide);
-%	\path [line] (decide) -| node [near start] {yes} (update);
-%	\path [line] (update) |- (identify);
-%	\path [line] (decide) -- node {no}(stop);
-%	\path [line,dashed] (expert) -- (init);
-%	\path [line,dashed] (system) -- (init);
-%	\path [line,dashed] (system) |- (evaluate);
-\end{tikzpicture}
-\end{center}
+%\begin{tcbposter}[
+%	coverage = {
+%		spread,
+%		interior style={
+%			%top color=yellow,bottom color=yellow!50!red
+%		},
+%		%	watermark text={\LaTeX\ Poster},
+%		%watermark color=yellow,	
+%	},
+%	poster = {
+%		showframe=false,
+%		%showframe,
+%		columns=3,
+%		rows=5}
+%	]
+%	% Here, we insert the poster content later
+%%	\posterbox{name=title,column=1,below=top}{
+%%		\bfseries\Huge Parabola\\
+%%	}
+%	\posterbox[fit,adjusted title=Intersezione asse y,halign=left,halign=flush left,  valign=top]{name=interAssey,column=1,row=1}
+%	{\[\begin{cases}
+%			y=&ax^2+bx+c\\
+%			x=&0\\
+%		\end{cases}\]
+%\[C(0,c)\]	
+%}
+%	\posterbox[fit,adjusted title=Intersezione asse y,halign=left,halign=flush left,  valign=top]{name=intAsseyG,column=2,row=1,span=1}
+%	{\begin{center}
+%		\begin{tikzpicture}[line cap=round,line join=round,x=0.7cm,y=0.7cm]
+%			\clip(-3.,-2.5) rectangle (3.,2.5);
+%			\draw[color=black,smooth,samples=100,domain=-3.0:3.0] plot(\x,{1/2*(\x)^(2)-2});
+%			\draw [->] (2.5,-2.5) -- (2.5,2.5);
+%		
+%				\draw [fill=black] (2.5,1.125) circle (2.5pt);
+%				\draw[color=black] (2.8,1.11) node {$V$};
+%		\end{tikzpicture}
+%	\end{center}}
+%\posterbox[fit,adjusted title=Intersezione asse x. Delta positivo,halign=left,halign=flush left,  valign=top]{name=deltapos,column=1,row=4}
+%{\[\begin{cases}
+%		x_1=&\dfrac{-b+\sqrt{b^2-4ac}}{2a}\\
+%		x_2=&\dfrac{-b-\sqrt{b^2-4ac}}{2a}\\
+%	\end{cases}\]
+%	\[A(x_1,0)\]
+%	\[B(x_2,0)\]
+%}
+%\end{tcbposter}
+%\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+%text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+%\tikzstyle{block} = [rectangle, draw, %fill=blue!20,
+%text width=5em, text centered, , node distance=2.5cm,rounded corners, minimum height=3em]
+%\tikzstyle{line} = [draw, very thick, %color=black!50,
+%-latex']
+%\tikzstyle{cloud} = [draw, ellipse,%fill=red!20, 
+%node distance=2.5cm, minimum height=2em]
+%\section*{Disegnare una parabola}
+%\begin{center}
+%	\begin{tikzpicture}[scale=1, node distance = 1.5cm, auto]
+%	% Place nodes
+%	\node [cloud] (init) {Inizio};
+%	%\node [cloud, left of=init] (expert) {expert};
+%%	\node [cloud, right of=init] (system) {system};
+%	\node [block, below of=init] (passo1) {Concavità};
+%	\node [block, below of=passo1] (passo2) {Vertice};
+%	\node [block, below of=passo2] (passo3) {Intersezione asse x};
+%	\node [block, below of=passo3] (passo4) {Intersezione asse y};
+%	\node [block, below of=passo4] (passo5) {Trovare i punti};
+%	\node [block, below of=passo5] (passo6) {Disegnare Parabola};
+%	\node [cloud, below of=passo6] (fine) {Fine};
+%	\path [line] (init) -- (passo1);
+%	\path [line] (passo1) -- (passo2);
+%	\path [line] (passo2) -- (passo3);
+%		\path [line] (passo3) -- (passo4);
+%		\path [line] (passo4) -- (passo5);
+%		\path [line] (passo5) -- (passo6);
+%		\path [line] (passo6) -- (fine);
+%%	\node [block, below of=identify] (evaluate) {evaluate candidate models};
+%%	\node [block, left of=evaluate, node distance=3cm] (update) {update model};
+%%	\node [decision, below of=evaluate] (decide) {is best candidate better?};
+%%	\node [block, below of=decide, node distance=3cm] (stop) {stop};
+%%	% Draw edges
+%%	\path [line] (init) -- (identify);
+%%	\path [line] (identify) -- (evaluate);
+%%	\path [line] (evaluate) -- (decide);
+%%	\path [line] (decide) -| node [near start] {yes} (update);
+%%	\path [line] (update) |- (identify);
+%%	\path [line] (decide) -- node {no}(stop);
+%%	\path [line,dashed] (expert) -- (init);
+%%	\path [line,dashed] (system) -- (init);
+%%	\path [line,dashed] (system) |- (evaluate);
+%\end{tikzpicture}
+%\end{center}
 \end{document}
