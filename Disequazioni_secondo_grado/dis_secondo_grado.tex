@@ -87,60 +87,40 @@ radius=5pt,
 			% Place nodes
 			\node [cloud] (init) {Inizio};
 			\node [input, below of=init] (passo1) {Leggo la disequazione};
-			\node[connessione,below of=passo1] (nodo1) {};
-			\node [input, below of=nodo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
-			\node [decision, below of=passo2,node distance=3cm] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
-			\node [print, below of=decisione1,node distance=3cm] (sceltasi1) {La trascrivo uguale a sinistra (prima) dell'uguale};
-			\node [print, right of=decisione1,node distance=6cm] (sceltano1) {La trascrivo cambiata di segno a sinistra  (prima) dell'uguale};
-			\node[connessione,below of=sceltasi1,node distance=1.5cm] (nodo2) {};
-			\node [decision, below of=nodo2,node distance=2.0cm] (decisione2) {Arrivato a destra?};
-			\node[connessione,below of=decisione2,node distance=2cm] (nodo3) {};
-		\node [input, below of=nodo3,node distance=1cm] (passo3) {Leggo l'espressione da sinistra verso destra cercando i numeri};
-		\node [decision, below of=passo3,node distance=2.8cm] (decisione3) {Il numero è a sinistra (prima) dell'uguale?};
-	\node [print, below of=decisione3,node distance=3cm] (sceltasi3) {La trascrivo cambiato di segno a destra (dopo) dell'uguale};
-\node [print, right of=decisione3,node distance=5.5cm] (sceltano3) {La trascrivo uguale a destra  (dopo) dell'uguale};
-\node[connessione,below of=sceltasi3,node distance=1.5cm] (nodo4) {};
-\node [decision, below of=nodo4,node distance=2cm] (decisione4) {Arrivato a destra?};
-\node[block,below of=decisione4,node distance=2.5cm] (passo4) {Sommo le incognite, Sommo i numeri};
-\node[decision,below of=passo4,node distance=3cm] (decisione5) {La somma delle incognite è zero?};
-\node[decision,right of=decisione5,node distance=4cm] (decisione6) {La somma dei numeri è zero?};
-\node[print,right of=decisione6, node distance =5cm] (sceltasi6) {Equazione indeterminata};
-\node[print,below of=decisione6, node distance =2.5cm] (sceltano6) {Equazione impossibile};
-\node[print,left of=decisione5, node distance =5.0cm] (sceltano5) {Equazione determinata};
-\node[print,below of=sceltano5, node distance =2cm] (passo5) {Soluzione $x=\displaystyle \frac{b}{a}$};
-\node[connessione,below of=sceltano6] (nodo5) {};
-	\node [cloud, below of=nodo5] (stop) {Fine};
-			\path [line] (init) -- (passo1);
-			\path [line] (passo1) -- (nodo1);
-     		\path [line] (nodo1) --  (passo2);
-    		\path [line] (passo2) --  (decisione1);
-     		\path [line] (decisione1) -- node[near start] {No} (sceltano1);
-     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
-			\path [line] (sceltasi1) --  (nodo2);
-			\path [line] (sceltano1) |-  (nodo2);
-			\path[line]  (nodo2)--(decisione2);
-			\path[line] (decisione2.west)--node[near start]{No}++(-3,0)|-(nodo1);
-			\path [line] (decisione2) --node[near start]{Si}  (nodo3);
-			\path [line] (nodo3) --  (passo3);
-			\path[line] (passo3)--(decisione3);
-			\path [line] (decisione3) -- node[near start] {No} (sceltano3);
-			\path [line] (decisione3) -- node[near start] {Si} (sceltasi3);
-			\path[line] (sceltasi3)--(nodo4);
-			\path[line] (sceltano3)|-(nodo4);
-			\path[line] (nodo4)--(decisione4);
-			\path[line] (decisione4.west)--node[near start]{No}++(-3,0)|-(nodo3);
-			\path[line] (decisione4)--(passo4);
-			
-				\path[line] (passo4)--(decisione5);
-				\path[line] (decisione5)--node [near start]{Si}(decisione6);
-				\path[line] (decisione6)--node [near start]{Si}(sceltasi6);
-				\path[line] (decisione6)--node [near start]{No}(sceltano6);
-			\path[line] (decisione5)--node [near start]{No}(sceltano5);
-			\path[line] (sceltano5)--(passo5);
-			\path[line](passo5)|-(nodo5);
-			\path[line] (sceltano6)--(nodo5);
-			\path[line] (sceltasi6)|-(nodo5);
-			\path[line](nodo5)--(stop);
+%	\node [cloud, below of=nodo5] (stop) {Fine};
+%			\path [line] (init) -- (passo1);
+%			\path [line] (passo1) -- (nodo1);
+%     		\path [line] (nodo1) --  (passo2);
+%    		\path [line] (passo2) --  (decisione1);
+%     		\path [line] (decisione1) -- node[near start] {No} (sceltano1);
+%     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
+%			\path [line] (sceltasi1) --  (nodo2);
+%			\path [line] (sceltano1) |-  (nodo2);
+%			\path[line]  (nodo2)--(decisione2);
+%			\path[line] (decisione2.west)--node[near 
+%start]{No}++(-3,0)|-(nodo1);
+%			\path [line] (decisione2) --node[near start]{Si}  (nodo3);
+%			\path [line] (nodo3) --  (passo3);
+%			\path[line] (passo3)--(decisione3);
+%			\path [line] (decisione3) -- node[near start] {No} (sceltano3);
+%			\path [line] (decisione3) -- node[near start] {Si} (sceltasi3);
+%			\path[line] (sceltasi3)--(nodo4);
+%			\path[line] (sceltano3)|-(nodo4);
+%			\path[line] (nodo4)--(decisione4);
+%			\path[line] (decisione4.west)--node[near 
+%start]{No}++(-3,0)|-(nodo3);
+%			\path[line] (decisione4)--(passo4);
+%			
+%				\path[line] (passo4)--(decisione5);
+%				\path[line] (decisione5)--node [near start]{Si}(decisione6);
+%				\path[line] (decisione6)--node [near start]{Si}(sceltasi6);
+%				\path[line] (decisione6)--node [near start]{No}(sceltano6);
+%			\path[line] (decisione5)--node [near start]{No}(sceltano5);
+%			\path[line] (sceltano5)--(passo5);
+%			\path[line](passo5)|-(nodo5);
+%			\path[line] (sceltano6)--(nodo5);
+%			\path[line] (sceltasi6)|-(nodo5);
+%			\path[line](nodo5)--(stop);
 		\end{tikzpicture}
 %	\end{center}
 \end{document}
