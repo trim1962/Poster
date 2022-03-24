@@ -86,7 +86,7 @@ radius=5pt,
 			 auto]
 			% Place nodes
 			\node [cloud] (init) {Inizio};
-			\node [block, below of=init] (passo1) {Semplifico l'espressione};
+			\node [input, below of=init] (passo1) {Semplifico l'espressione};
 			\node[connessione,below of=passo1] (nodo1) {};
 			\node [input, below of=nodo1] (passo2) {Leggo l'espressione da sinistra verso destra cercando le incognite};
 			\node [decision, below of=passo2,node distance=3cm] (decisione1) {L'incognita è a sinistra (prima) dell'uguale?};
