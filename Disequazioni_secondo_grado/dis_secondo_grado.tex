@@ -95,7 +95,19 @@ radius=5pt,
 	\node [decision, right of=passo2, node distance=3.5cm] (passo2Si) 
 	{$a>0$};
 	\node [block, right of=passo2Si, node distance=3.5cm] (passo2SiSi) 
-	{$a>0$};
+	{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 
+	45,x=1.0cm,y=1.0cm]
+			\draw[->,color=black] (-3,0) -- (3,0);
+			\clip(-3,-0.3) rectangle (3,0.5);
+			\draw (-1,0.5)-- (-1,0);
+			\draw (1,0.5)-- (1,0);
+			\draw [line width=1.2pt,dash pattern=on 5pt off 5pt] (-1,0.5) -- 
+			(1,0.5);
+			\draw (1,0.5)-- (3,0.5);
+			\draw (-1,0.5)-- (-3,0.5);
+			\draw (-1.02,0.02) node[anchor=north west] {$x_1$};
+			\draw (0.98,0.02) node[anchor=north west] {$x_2$};
+	\end{tikzpicture}};
 %	\node [cloud, below of=nodo5] (stop) {Fine};
 %			\path [line] (init) -- (passo1);
 %			\path [line] (passo1) -- (nodo1);
