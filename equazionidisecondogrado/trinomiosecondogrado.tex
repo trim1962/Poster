@@ -100,7 +100,7 @@ radius=5pt,
 		\node[decision,below of=1] (2) {$a=0$};
 			\node[decision,below right=1.0cm and 2cm of 2] (3) {$b=0$};
 			\node[decision,below right=1.0cm and 2cm of 3] (4) {$c=0$};
-			\node[block,below left=1.0cm and 2cm of 3,text width=5em, ] (8) 
+			\node[block,below left=0.8cm and 2cm of 3,text width=5em, ] (8) 
 			{Soluzione 
 			$x=-\dfrac{c}{b}$};
 %			\node[connessione,below of=passo1] (nodo1) {};
@@ -149,7 +149,7 @@ radius=5pt,
      		\path [line] (1) --  (2);
      		\path [line] (2.east) -- node[near start] {Si}++(2,0)-| (3.north);
      		\path [line] (3.east) -- node[near start] {Si}++(2,0)-| (4.north);
-     		\path [line] (3.west) -- node[near start] {no}++(-2,0)-| (8.north);
+     		\path [line] (3.west) -- node[near start] {No}++(-2,0)-| (8.north);
 %     		\path [line] (decisione1) -- node[near start] {No} (sceltano1);
 %     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
 %			\path [line] (sceltasi1) --  (nodo2);
