@@ -90,7 +90,6 @@ radius=5pt,
 
 		\begin{tikzpicture}[scale=1, %node distance = 2.5cm,
 			 auto]
-			% Place nodes
 			\node [cloud] (init) {Inizio};
 			\node [block, below of=init] (1) {$ax^2+bx+c=0$};
 			\node [input,below of=1,text width=35em,node 
@@ -114,7 +113,6 @@ radius=5pt,
 		{$x_{1,2}=\dfrac{-b\pm\sqrt{\Delta}}{2a}$};
 		\node[connessione,below of=6,node distance=2cm] (11) at (10 -| 6){}; 
 		\node[connessione,below of=4,node distance=3.2cm] (12) at (9 -| 4){};
-%		\node[connessione,below of=12,node distance=5cm] (21) at (16 -| 2){}; 
 		\node [cloud,below of=12,node distance=1cm] (stop) {Fine};
 			\path [line] (init) -- (1);
      		\path [line] (1) --  (2);
@@ -132,8 +130,6 @@ radius=5pt,
      		\path [line] (9.south) -- ++(0,-1)|- (11);
      		\path [line] (11.south) -- ++(0,-1)|- (12);
     		\path [line] (5.south) -- ++(0,-1)|- (12);
-%     		\path [line] (20.south) -- ++(0,-1)|- (21);
-%     		\path [line] (9.south) -- ++(0,-1)|- (21);
     		\path [line] (12) --  (stop);
 		\end{tikzpicture}
 \end{document}
