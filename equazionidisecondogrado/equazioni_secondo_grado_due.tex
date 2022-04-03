@@ -103,7 +103,7 @@ radius=5pt,
 		\node[decision,below of=3,node distance=2.5 cm] (4) {$\Delta<0$};
 		\node[print,below right=0.5cm and 1.5cm of 4,text width=5em, ] (5) 		
 		{Non ho soluzioni reali};
-%		\node[decision,below left=1cm and 2.0cm of 12] (14) {$\Delta=0$};
+		\node[decision,below left=1cm and 2.0cm of 5] (6) {$\Delta=0$};
 %		\node[print,below right=0.5cm and 1.5cm of 14,text width=5em, ] (15) 
 %		{Ho soluzioni coincidenti};
 %		\node[print,below left=0.5cm and 1.5cm of 14,text width=5em, ] (17) 
@@ -120,8 +120,8 @@ radius=5pt,
      		\path [line] (1) --  (2);
      		\path [line] (2) --  (3);
      		\path [line] (3) --  (4);
-    %		\path [line] (12.west) -- node[near start] {No}++(-2,0)-|    		
-    %		(14.north);
+    		\path [line] (4.west) -- node[near start] {No}++(-2,0)-|    		
+    		(6.north);
      		\path [line] (4.east) -- node[near start] {Si}++(2,0)-| (5.north);
 %     		\path [line] (14.east) -- node[near start] {Si}++(2,0)-| (15.north);
 %     		\path [line] (14.west) -- node[near start] {No}++(-2,0)-| 
