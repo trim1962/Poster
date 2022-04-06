@@ -90,11 +90,11 @@ radius=5pt,
 			disequazione $ax^2+bx+c\quad \text{Verso}\quad 0$};
 		\node [block, below of=passo1, node distance=2cm] (passo2) {Risolvo 
 		l'equazione $ax^2+bx+c=0$};
-	\node [decision, below of=passo2, node distance=2cm] (passo2) 
+	\node [decision, below of=passo2, node distance=2cm] (passo3) 
 	{$\Delta>0$};
-	\node [decision, right of=passo2, node distance=3.5cm] (passo2Si) 
+	\node [decision, right of=passo3, node distance=3.5cm] (passo3Si) 
 	{$a>0$};
-	\node [block, right of=passo2Si, node distance=3.8cm] (passo2SiSi) 
+	\node [block, right of=passo3Si, node distance=3.8cm] (passo3SiSi) 
 	{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 
 	45,x=1.0cm,y=1.0cm]
 			\draw[->,color=black] (-2,0) -- (1.5,0);
@@ -107,7 +107,7 @@ radius=5pt,
 			\draw (-1.2,0.02) node[anchor=north west] {$x_1$};
 			\draw (0.3,0.02) node[anchor=north west] {$x_2$};
 	\end{tikzpicture}};
-\node [block, below of=passo2Si, node distance=2.5cm] (passo2SiNO) 
+\node [block, below of=passo3Si, node distance=2.5cm] (passo3SiNo) 
 {\begin{tikzpicture}[line cap=round,line join=round,>=triangle 
 		45,x=1.0cm,y=1.0cm]
 		\draw[->,color=black] (-2,0) -- (1.5,0);
@@ -122,22 +122,96 @@ radius=5pt,
 		\draw (-1.2,0.02) node[anchor=north west] {$x_1$};
 		\draw (0.3,0.02) node[anchor=north west] {$x_2$};
 \end{tikzpicture}};
-\node [decision, below of=passo2, node distance=5cm] (passo2No) 
+\node [decision, below of=passo3, node distance=5cm] (passo4) 
 {$\Delta=0$};
-node [decision, right of=passo2No, node distance=3.5cm] (passo2NoSi) 
+\node [decision, right of=passo4, node distance=3.5cm] (passo4Si) 
 {$a>0$};
-%	\node [cloud, below of=nodo5] (stop) {Fine};
-%			\path [line] (init) -- (passo1);
-%			\path [line] (passo1) -- (nodo1);
-%     		\path [line] (nodo1) --  (passo2);
+	\node [block, right of=passo4Si, node distance=3.8cm] (passo4SiSi) 
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 
+		45,x=1.0cm,y=1.0cm]
+		\draw[->,color=black] (-2,0) -- (1.5,0);
+	%	\clip(-2,-0.3) rectangle (1.5,0.5);
+		\draw (-0.25,0.5)-- (-0.25,0);%bandiera x1
+		\draw (-2,0.5)-- (1.5,0.5); %prima x1
+		\draw (-.9,0.02) node[anchor=north west] {$x_1\equiv x_2$};
+\end{tikzpicture}};
+	\node [block, below of=passo4Si, node distance=2.5cm] (passo4SiNo) 
+{\begin{tikzpicture}[line cap=round,line join=round,>
+		=triangle 
+		45,x=1.0cm,y=1.0cm]
+		\draw[->,color=black] (-2,0) -- (1.5,0);
+	%	\clip(-2,-0.3) rectangle (1.5,0.5);
+		\draw (-0.25,0.5)-- (-0.25,0);%bandiera x1
+		\draw [line width=1.2pt,dash pattern=on 5pt off 5pt] (-2,0.5)-- 
+		(1.5,0.5); %prima x1
+		\draw (-.9,0.02) node[anchor=north west] {$x_1\equiv x_2$};
+\end{tikzpicture}};
+\node [decision, below of=passo4, node distance=5cm] (passo5) 
+{$\Delta<0$};
+\node [decision, right of=passo5, node distance=3.5cm] (passo5Si) 
+{$a>0$};
+	\node [block, right of=passo5Si, node distance=3.8cm] (passo5SiSi) 
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 
+		45,x=1.0cm,y=1.0cm]
+		\draw[->,color=black] (-2,0) -- (1.5,0);
+	%	\clip(-2,-0.3) rectangle (1.5,0.5);
+	%	\draw (-0.25,0.5)-- (-0.25,0);%bandiera x1
+		\draw (-2,0.5)-- (1.5,0.5); %prima x1
+	%	\draw (-.9,0.02) node[anchor=north west] {$x_1\equiv x_2$};
+\end{tikzpicture}};
+	\node [block, below of=passo5Si, node distance=2.5cm] (passo5SiNo) 
+{\begin{tikzpicture}[line cap=round,line join=round,>
+		=triangle 
+		45,x=1.0cm,y=1.0cm]
+		\draw[->,color=black] (-2,0) -- (1.5,0);
+	%	\clip(-2,-0.3) rectangle (1.5,0.5);
+	%	\draw (-0.25,0.5)-- (-0.25,0);%bandiera x1
+		\draw [line width=1.2pt,dash pattern=on 5pt off 5pt] (-2,0.5)-- 
+		(1.5,0.5); %prima x1
+%		\draw (-.9,0.02) node[anchor=north west] {$x_1\equiv x_2$};
+\end{tikzpicture}};
+	\node [connessione, below of=passo5, node distance=3.5cm] (Connessione){};
+	\node [block, below of=Connessione,node distance=1.5cm] (Passo6) {Leggo la 
+	domanda e 
+	utilizzando il grafico rispondo}; 
+	\node [cloud, below of=Passo6,node distance=1.5cm] (stop) {Fine}; 
+%	\node [cloud, below of=nodo5] (stop) {Fine};5
+			\path [line] (init) -- (passo1);
+			\path [line] (passo1) -- (passo2);
+     		\path [line] (passo2) --  (passo3);
+     		\path [line] (passo3) -- node[near start] {Si} (passo3Si);
+     		\path [line] (passo3Si) -- node[near start] {Si} (passo3SiSi);
+     		\path [line] (passo3) -- node[near start] {No} (passo4);
+     		\path [line] (passo3Si) -- node[near start] {No} (passo3SiNo);
+     		\path [line] (passo4) -- node[near start] {Si} (passo4Si);
+     		\path [line] (passo4Si) -- node[near start] {Si} (passo4SiSi);
+     		\path [line] (passo4) -- node[near start] {No} (passo5);
+     		\path [line] (passo4Si) -- node[near start] {No} (passo4SiNo);
+     		\path [line] (passo5) -- node[near start] {Si} (passo5Si);
+     		\path [line] (passo5Si) -- node[near start] {Si} (passo5SiSi);
+     		\path [line] (passo5) --  (Connessione);
+     		\path [line] (passo5Si) -- node[near start] {No} (passo5SiNo);
+     		\path [line] (Connessione) --  (Passo6);
+     		\path [line] (Passo6) --  (stop);
+			\path[line] (passo3SiSi.east)--node[near 
+start]{}++(1,0)|-(Connessione);
+			\path[line] (passo4SiSi.east)--node[near 
+start]{}++(1,0)|-(Connessione);
+			\path[line] (passo5SiSi.east)--node[near 
+start]{}++(1,0)|-(Connessione);
+			\path[line] (passo3SiNo.east)--node[near 
+start]{}++(4.8,0)|-(Connessione);
+	\path[line] (passo4SiNo.east)--node[near 
+start]{}++(4.8,0)|-(Connessione);
+	\path[line] (passo5SiNo.east)--node[near 
+start]{}++(4.8,0)|-(Connessione);
 %    		\path [line] (passo2) --  (decisione1);
 %     		\path [line] (decisione1) -- node[near start] {No} (sceltano1);
 %     		\path [line] (decisione1) -- node[near start] {Si} (sceltasi1);
 %			\path [line] (sceltasi1) --  (nodo2);
 %			\path [line] (sceltano1) |-  (nodo2);
 %			\path[line]  (nodo2)--(decisione2);
-%			\path[line] (decisione2.west)--node[near 
-%start]{No}++(-3,0)|-(nodo1);
+
 %			\path [line] (decisione2) --node[near start]{Si}  (nodo3);
 %			\path [line] (nodo3) --  (passo3);
 %			\path[line] (passo3)--(decisione3);
