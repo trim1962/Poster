@@ -1,0 +1,76 @@
+%\documentclass{standalone}
+%%\usepackage[T1]{fontenc}
+%\usepackage{amsmath}
+%%\usepackage{amsfonts}
+%%\usepackage{amssymb}
+%%\usepackage{mathtools}
+%%\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%%\usepackage{tikz}
+%%\usetikzlibrary{shapes,arrows,shapes.misc,shapes.symbols}
+%%\usetikzlibrary{positioning}
+%%\usepackage{gitinfo2}
+%%\usepackage{graphicx}
+%\usepackage{annotate-equations}
+%%\makeatletter
+%%\AddToShipoutPictureBG{%
+%%	\AtPageLowerLeft{%
+%%		\kern2.6cm
+%%		\raisebox{\dimexpr.5\paperheight-.8\height}
+%%		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+%%	}%
+%%}%
+%%\makeatother
+%
+%\begin{document}
+%\begin{equation*}
+%	\eqnmarkbox[blue]{node1}{e_q^n}
+%	\eqnmark[red]{node2}{f(x)}
+%	\tikzmarknode{node3}{kT}
+%\end{equation*}
+%\annotate[yshift=1em]{}{node1,node2}{my annotation text}
+%\end{document}
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{annotate-equations}
+\usepackage{mathtools, nccmath}
+\newcommand{\lap}{\mathrm{Lap}}
+\usepackage{wrapfig}
+\usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}
+\usepackage{xcolor}
+\newcommand{\highlight}[2]{\colorbox{#1!17}{$\displaystyle #2$}}
+%\newcommand{\highlight}[2]{\colorbox{#1!17}{$#2$}}
+\newcommand{\highlightdark}[2]{\colorbox{#1!47}{$\displaystyle #2$}}
+\renewcommand{\highlight}[2]{\colorbox{#1!17}{#2}}
+\renewcommand{\highlightdark}[2]{\colorbox{#1!47}{#2}}
+\begin{document}
+	
+	\renewcommand{\eqnhighlightheight}{\mathstrut}
+
+
+\begin{tikzpicture}
+	\begin{equation*}
+	\frac{\eqnmark{num}{N(x)}} 
+	{\eqnmark{den}{D(x)}}\eqnmark{post}{\geq 0}
+\end{equation*}
+\end{tikzpicture}
+\annotate[yshift=2.5em]{above,left}{num}{Numeratore}
+%	\annotate[yshift=1em]{above,right}{prior}{prior}
+\annotate[yshift=1em]{above,right}{post}{Domanda}
+\annotate[yshift=-1em]{below,right}{den}{Denominatore}
+
+	
+	
+	
+	
+	
+	
+
+
+
+\end{document}
