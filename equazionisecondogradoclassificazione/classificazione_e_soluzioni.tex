@@ -21,19 +21,7 @@
 	}%
 }%
 \makeatother
-\newcommand{\prdfrazioni}{\begin{tikzpicture}[thick]
-		\def\x{2.8mm}
-		\def\h{2.4mm}
-		\def\dist{12mm}%1cm
-		\node at (0,0) {$\displaystyle \frac{a}{b}$};
-		\node at (\dist,0) {$\displaystyle \frac{c}{d}$};
-		\node at (1.4*\dist,0) {$\displaystyle =$};
-		\node at (2.0*\dist,0) {$\displaystyle \frac{a\cdot c}{b\cdot d}$};
-		% collegamento termini
-		\draw[-stealth] (\x, \h)--(\dist-\x,\h); 
-		\draw[-stealth] (\x,-\h)--node [near start] {$\cdot$}(\dist-\x, -\h);
-	\end{tikzpicture}%
-}
+
 %\renewcommand{\gitMarkFormat}{\color{blue}\sffamily\bfseries}
 \begin{document}
 \tikzset{
