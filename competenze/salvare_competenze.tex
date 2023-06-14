@@ -1,0 +1,138 @@
+\documentclass[10pt,a4paper,tikz,border=20pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.misc,shapes.geometric,positioning,calc,through}
+\usepackage{gitinfo2}
+\usepackage{graphicx}
+\renewcommand{\gitMark}{Branch:\,\gitBranch\,@\,\gitAbbrevHash{}; Author:\,\gitAuthorName; Date:\,\gitAuthorIsoDate~\textbullet{}}
+\makeatletter
+\AddToShipoutPictureBG{%
+	\AtPageLowerLeft{%
+		\kern2.6cm
+		\raisebox{\dimexpr.5\paperheight-.8\height}
+		{\rotatebox{90}{\gitMarkFormat\gitMarkPref{} \textbullet{} \gitMark}}%
+	}%
+}%
+\makeatother
+\begin{document}
+	\tikzset{
+		decision/.style={diamond, draw, %fill=blue!20,
+			text width=6.5em, text badly centered, 
+		%	node distance=1cm, 
+			inner sep=0pt
+		},
+		block/.style={rectangle, draw, %fill=blue!20,
+		%	text width=15em,
+			 text centered, 
+		%	node distance=1.0cm,
+			%rounded corners, %minimum height=3em
+		},
+		loop/.style={chamfered rectangle,chamfered rectangle 	xsep=2cm, draw, %fill=blue!20,
+			text width=15em, text centered,  
+			%node distance=2.5cm,% minimum height=3em
+		},
+	cloud/.style={draw, ellipse,%fill=red!20, 
+		node distance=1cm, minimum height=2em
+	},
+	input/.style={ % requires library shapes.geometric
+		draw,
+		trapezium,
+		trapezium left angle=60,
+		trapezium right angle=120,
+	},
+	line/.style={draw, very thick, %color=black!50,
+		-latex'},
+	connessione/.style={
+		draw,
+		circle,
+		radius=5pt,
+	},
+	commento/.style={draw=black!20!white, line width=1pt, dash pattern=on 1pt off 
+		4pt on 6pt off 4pt,
+		%	inner ysep=6mm,inner xsep=1mm, 
+		rectangle,
+		rounded corners}
+	}
+	\def\dis{1cm}
+		\begin{tikzpicture}[scale=1, node distance = 3.0cm,on grid]
+			% Place nodes
+			%\node [cloud] (init) {Inizio};
+\node [commento](1) {ESPORTARE LE COMPETENZE DELLA CLASSE};		
+\node [cloud,below=\dis of 1] (2) {Inizio};
+\node [decision,below=2.5*\dis of 2 ](3){Sei Coordinatore ?};
+\node [block,below left=4*\dis of 3] (4) {Non puoi fare nulla};
+\node [block,below right=4*\dis of 3] (5) {Vai al \textbf{menu Coordinatore}};
+\node [block,below=2*\dis of 5] (6) {Seleziona \textbf{Valutazioni}};
+\node [block,below=2*\dis of 6] (7) {Seleziona \textbf{Secondo Periodo}};
+\node [block,below=2*\dis of 7] (8) {Seleziona \textbf{Sintesi competenze}};
+\node [block,below=2*\dis of 8] (9) {Seleziona \textbf{Totale}};
+\node [block,below=2*\dis of 9] (10) {Premere \textbf{Export Medie}};
+\node [block,below=2*\dis of 10] (11) {Spedire il file ottenuto al\textbf{ Gruppo Tecnico Uda}};
+\node [connessione, below=7*\dis of $(4)!0.5!(11)$] (12) {};
+\node [cloud, below of=12] (13) {Fine};
+\path [line] (2) -- (3);
+\path [line] (3.west)  -|node [near start,yshift=0.5cm] {NO} (4.north);
+\path [line] (3.east)  -|node [near start,yshift=0.5cm] {SI} (5.north);
+\path [line] (5) -- (6);
+\path [line] (6) -- (7);
+\path [line] (7) -- (8);
+\path [line] (8) -- (9);
+\path [line] (9) -- (10);
+\path [line] (10) -- (11);
+\path [line] (11) |- (12);
+\path [line] (4) |- (12);
+\path [line] (12) -- (13);
+%\node [block] (7) {$ax^2=0$};
+%\node [block,right=4*\dis of 7] (8) {$ax^2+c=0$};
+%\node [block,right=4*\dis of 8] (9) {$ax^2+bx=0$};
+%\node [block,right=4*\dis of 9] (10) {$ax^2+bx+c=0$};
+%\node [decision,above=2*\dis of $(7)!0.5!(8)$](5) {$c=0$};
+%\node [decision,above=2*\dis of $(9)!0.5!(10)$](6) {$c=0$};
+%\node [decision,above=2*\dis of $(5)!0.5!(6)$](4) {$b=0$};
+%\node [block, left=10 *\dis of 4] (3) {Non è di secondo grado};
+%\node [decision,above=2*\dis of $(3)!0.5!(4)$](2) {$a=0$};
+%\node [commento,above=3*\dis of 2](1) {$ax^2+bx+c=0$};
+%\node [cloud,above=2*\dis of 1] (init) {Inizio};
+%\node [block,below=of 7] (11) {$x_{1,2}=0$};
+%\node [block,below=of 8] (12) {$\begin{aligned}
+%		ax^2+c&=0\\
+%		ax^2=&-c\\
+%		x_{1,2}=&\pm\sqrt{-\dfrac{c}{a}}
+%	\end{aligned}$};
+%\node [block,below=of 9] (13) {$\begin{aligned}
+%		x(ax+b)&=0\\
+%		x_{1}=&0\\
+%		ax+b=&0\\
+%		x_{2}=&-\dfrac{b}{a}
+%	\end{aligned}$};
+%\node [block,below=of 10] (14) {$x_{1,2}=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$};
+%			\node [connessione, below=2*\dis of $(11)!0.5!(14)$] (15) {};
+%			\node [cloud, below of=15] (fine) {Fine};
+%%			\node [block, below left=of passo6] (passo10) {Non esistono soluzioni};
+%			\path [line] (init) -- (1);
+%			\path [line] (1) -- (2);
+%			\path [line] (2.west)  -|node [near start,yshift=0.5cm] {Si} (3.north);
+%			\path [line] (2.east)  -|node [near start,yshift=0.5cm] {No} (4.north);
+%			\path [line] (4.west)  -|node [near start,yshift=0.5cm] {Si} (5.north);
+%			\path [line] (4.east)  -|node [near start,yshift=0.5cm] {No} (6.north);
+%			\path [line] (5.west)  -|node [near start,yshift=0.5cm] {Si} (7.north);
+%			\path [line] (5.east)  -|node [near start,yshift=0.5cm] {No} (8.north);
+%			\path [line] (6.west)  -|node [near start,yshift=0.5cm] {Si} (9.north);
+%			\path [line] (6.east)  -|node [near start,yshift=0.5cm] {No} (10.north);
+%	\path [line] (7) -- (11);
+%	\path [line] (8) -- (12);
+%	\path [line] (9) -- (13);
+%	\path [line] (10) -- (14);
+%	\path [line] (3.south) |- (15);
+%	\path [line] (11.south) |- (15);
+%	\path [line] (12.south) |- (15);
+%	\path [line] (13.south) |- (15);
+%	\path [line] (14.south) |- (15);
+%		\path[line](15)--(fine);
+		\end{tikzpicture}
+\end{document}
