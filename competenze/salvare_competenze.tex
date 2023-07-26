@@ -87,52 +87,6 @@
 \path [line] (11) |- (12);
 \path [line] (4) |- (12);
 \path [line] (12) -- (13);
-%\node [block] (7) {$ax^2=0$};
-%\node [block,right=4*\dis of 7] (8) {$ax^2+c=0$};
-%\node [block,right=4*\dis of 8] (9) {$ax^2+bx=0$};
-%\node [block,right=4*\dis of 9] (10) {$ax^2+bx+c=0$};
-%\node [decision,above=2*\dis of $(7)!0.5!(8)$](5) {$c=0$};
-%\node [decision,above=2*\dis of $(9)!0.5!(10)$](6) {$c=0$};
-%\node [decision,above=2*\dis of $(5)!0.5!(6)$](4) {$b=0$};
-%\node [block, left=10 *\dis of 4] (3) {Non è di secondo grado};
-%\node [decision,above=2*\dis of $(3)!0.5!(4)$](2) {$a=0$};
-%\node [commento,above=3*\dis of 2](1) {$ax^2+bx+c=0$};
-%\node [cloud,above=2*\dis of 1] (init) {Inizio};
-%\node [block,below=of 7] (11) {$x_{1,2}=0$};
-%\node [block,below=of 8] (12) {$\begin{aligned}
-%		ax^2+c&=0\\
-%		ax^2=&-c\\
-%		x_{1,2}=&\pm\sqrt{-\dfrac{c}{a}}
-%	\end{aligned}$};
-%\node [block,below=of 9] (13) {$\begin{aligned}
-%		x(ax+b)&=0\\
-%		x_{1}=&0\\
-%		ax+b=&0\\
-%		x_{2}=&-\dfrac{b}{a}
-%	\end{aligned}$};
-%\node [block,below=of 10] (14) {$x_{1,2}=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$};
-%			\node [connessione, below=2*\dis of $(11)!0.5!(14)$] (15) {};
-%			\node [cloud, below of=15] (fine) {Fine};
-%%			\node [block, below left=of passo6] (passo10) {Non esistono soluzioni};
-%			\path [line] (init) -- (1);
-%			\path [line] (1) -- (2);
-%			\path [line] (2.west)  -|node [near start,yshift=0.5cm] {Si} (3.north);
-%			\path [line] (2.east)  -|node [near start,yshift=0.5cm] {No} (4.north);
-%			\path [line] (4.west)  -|node [near start,yshift=0.5cm] {Si} (5.north);
-%			\path [line] (4.east)  -|node [near start,yshift=0.5cm] {No} (6.north);
-%			\path [line] (5.west)  -|node [near start,yshift=0.5cm] {Si} (7.north);
-%			\path [line] (5.east)  -|node [near start,yshift=0.5cm] {No} (8.north);
-%			\path [line] (6.west)  -|node [near start,yshift=0.5cm] {Si} (9.north);
-%			\path [line] (6.east)  -|node [near start,yshift=0.5cm] {No} (10.north);
-%	\path [line] (7) -- (11);
-%	\path [line] (8) -- (12);
-%	\path [line] (9) -- (13);
-%	\path [line] (10) -- (14);
-%	\path [line] (3.south) |- (15);
-%	\path [line] (11.south) |- (15);
-%	\path [line] (12.south) |- (15);
-%	\path [line] (13.south) |- (15);
-%	\path [line] (14.south) |- (15);
-%		\path[line](15)--(fine);
+
 		\end{tikzpicture}
 \end{document}
